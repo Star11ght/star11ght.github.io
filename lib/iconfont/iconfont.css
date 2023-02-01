@@ -5,6 +5,14 @@
        url('iconfont.ttf?t=1663478988380') format('truetype');
 }
 
+/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: 'kirafont';  /* Project id 3875185 */
+  src: url('//at.alicdn.com/t/c/font_3875185_dyta7vt4fx.woff2?t=1675218608608') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3875185_dyta7vt4fx.woff?t=1675218608608') format('woff'),
+       url('//at.alicdn.com/t/c/font_3875185_dyta7vt4fx.ttf?t=1675218608608') format('truetype');
+}
+
 .kirafont {
   font-family: "kirafont" !important;
   font-size: 16px;
@@ -83,5 +91,9 @@
 
 .icon-github:before {
   content: "\e885";
+}
+
+.icon-netease:before {
+  content: "\e63c";
 }
 
