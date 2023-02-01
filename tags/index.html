@@ -23,7 +23,7 @@
 		<link rel="stylesheet" href="/lib/iconfont/iconfont.css" crossorigin />
 		<link
 			rel="shortcut icon"
-			href="images/favicon.png"
+			href="/images/favicon.png"
 			type="image/png"
 		/>
 	<meta name="generator" content="Hexo 6.3.0"></head>
@@ -31,7 +31,7 @@
 	<body>
 		<div
 			class="kira-background"
-			style="background-image: url('images/welcome-cover.jpg')"
+			style="background-image: url('/images/welcome-cover.jpg')"
 		></div>
 		<div class="kira-header">
     <a
@@ -43,7 +43,7 @@
     </a>
     <a href="/" title="the Grimoire of Starlight">
         <img
-			src="images/Head.jpg"
+			src="/images/Head.jpg"
 			alt="MiyakTik"
 		/>
     </a>
@@ -51,9 +51,9 @@
 		<div class="kira-body">
 			<div class="kira-sidebar" id="sidebar">
 	<div class="kira-avatar mdui-ripple">
-		<a href="images/Head.jpg" title="MiyakTik">
+		<a href="/images/Head.jpg" title="MiyakTik">
 			<img
-				src="images/Head.jpg"
+				src="/images/Head.jpg"
 				alt="MiyakTik"
 			/>
 		</a>
@@ -152,6 +152,19 @@
 			<i
 				class="kirafont icon-github"
 			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://music.163.com/#/artist?id=12269011"
+			target="_blank"
+			mdui-tooltip="{content: '网易云音乐'}"
+			style="
+				color: ;
+				background-color: ;
+			"
+		>
+			<i
+				class="kirafont /icon/wyy.png"
+			></i> </a
 		>
 	</div>
 </div>
@@ -233,7 +246,7 @@
 			style="padding-bottom: '62.18749999999999%'"
 		>
 			<img
-				data-src="images/welcome-cover.jpg"
+				data-src="/images/welcome-cover.jpg"
 				data-sizes="auto"
 				alt="tags"
 				class="lazyload  kira-post-cover-image"
@@ -280,8 +293,8 @@
 			clientSecret: '-key-',
 			id: 'tags',
 			repo: '-issue repo name-',
-			owner: '-your github username-',
-			admin: '-your github username-',
+			owner: 'star11ght',
+			admin: 'star11ght',
 			title: '',
 		});
 		gitalk.render('gitalk');
