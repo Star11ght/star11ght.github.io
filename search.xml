@@ -1,31 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>电脑丈育的求生之路.jpg</title>
-    <url>/2023/01/31/2023013101/</url>
-    <content><![CDATA[<p>Hexo附赠的帮助文档，存着作参考。</p>
-<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Hello World!</title>
-    <url>/2023/01/31/2023013102/</url>
-    <content><![CDATA[<p>建了个博客，捣鼓了一晚上。结果没想到是主题设置了一晚上。<br>家里网络实在是太慢了啦！！！！Orz<br>这篇文章也拿来试试看。</p>
+    <url>/2023/01/31/Hello%20World!/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>建了个博客，捣鼓了一晚上。结果没想到是主题设置了一晚上。<br>家里网络实在是太慢了啦！！！！Orz<br>这篇文章也拿来试试看。</p>
 ]]></content>
       <tags>
-        <tag>杂谈</tag>
+        <tag>Chat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学习一下markdown语法吧</title>
+    <url>/2023/02/01/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%8Bmarkdown%E8%AF%AD%E6%B3%95%E5%90%A7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>“#”号测试：<br>#这句话好大<br>##这句话第二大<br>###这句话第三大<br>####这句话第四大<br>#####再大下去就没完了<br>######反正只要在前面加#号就是加粗变大罢<br>#######哇哦7个#号竟然没用了</p>
+<hr>
+<p>“*”号测试：<br>这是一句前面什么都没有加的文字<br><em>这是一句变成了斜体的文字</em><br><strong>这是一句变成了粗体的文字</strong><br><em><strong>三个星号竟然是粗体+斜体！</strong></em></p>
+<hr>
+<p>“-“号测试：</p>
+<ul>
+<li>列表是什么</li>
+<li>前面加个-号出现了一个圆点变成了列表<ul>
+<li>甚至还有第二级列表<ul>
+<li>竟然还有第三级列表<ul>
+<li>好像可以无穷无尽</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>数字加点测试：</p>
+<ol>
+<li>有序列表</li>
+<li>他自动帮我换了序号。好帅！<ol>
+<li>二级开始了新的排序</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p>图片测试：<br><img src="/images/favicon.png" alt="大可罢格的Logo"><br><em>大可罢格的Logo</em></p>
+<p><img src="http://p1.music.126.net/mvFeIRSFgPrbxchU5BUtAQ==/109951168195571858.jpg" alt="可爱的芙兰老婆抱着小熊玩偶发呆"><br><em>可爱的芙兰老婆抱着小熊玩偶发呆</em></p>
+<hr>
+<p>加三个”&#96;”号能创建代码块耶</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cout&lt;&lt;&quot;Hello World!&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>加”&gt;”竟然能引用一句话！</p>
+<blockquote>
+<p>叔叔云：“你所热爱的，就是你的生活。”</p>
+<blockquote>
+<p>蒙古上单云：“祝你身体健康”</p>
+</blockquote>
+</blockquote>
+<hr>
+<p>加”|”竟然是表格！？！</p>
+<table>
+<thead>
+<tr>
+<th>fl.</th>
+<th>jrrp</th>
+<th>qd</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>星光</td>
+<td>114514</td>
+<td>520</td>
+</tr>
+<tr>
+<td>芙兰</td>
+<td>1919810</td>
+<td>520</td>
+</tr>
+</tbody></table>
+<hr>
+<p>连续两个回车竟然才是换行</p>
+<p>换行了吗</p>
+<p>换行了吗</p>
+<p>好像换了罢.jpg<br><font color="#0099ff">能换颜色诶！(#0099ff)<br><font color="blue">这个是蓝色(blue)<br><strong><font color="blue">这个是很粗的蓝色(blue)</font></strong></font></font></p>
+<font color="black">
+为了方便以后写东西，给自己整点颜色看看（划去）
+
+<p><img src="/images/fontcolor.png" alt="大可罢格的Logo"></p>
+<hr>
+<p>这里能放音乐吗</p>
+<!-- 简单示例 (id, server, type)  -->
+
+    <div id="aplayer-SOieVagO" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="1996926039" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+
+<!-- 进阶示例 -->
+
+    <div id="aplayer-XBJVnksM" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="157288442 netease" " data-server="album" data-type="autoplay" data-mode="circulation" data-autoplay="false" data-mutex="false" data-listmaxheight="340px" data-preload="none" data-theme="#ad7a86"></div>
+<hr>
+<p>这里能放视频吗！</p>
+<iframe src="https://player.bilibili.com/player.html?aid=474503881&page=11&as_wide=1&high_quality=1&danmaku=1" style="width: 62em; height: 35em;" allowfullscreen="allowfullscreen" width="100%" height="100%" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe></font>]]></content>
+      <tags>
+        <tag>Study</tag>
       </tags>
   </entry>
 </search>
