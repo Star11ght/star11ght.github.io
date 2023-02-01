@@ -1,16 +1,8 @@
 @font-face {
-  font-family: "kirafont"; /* Project id 3299330 */
-  src: url('iconfont.woff2?t=1663478988380') format('woff2'),
-       url('iconfont.woff?t=1663478988380') format('woff'),
-       url('iconfont.ttf?t=1663478988380') format('truetype');
-}
-
-/* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-@font-face {
-  font-family: 'kirafont';  /* Project id 3875185 */
-  src: url('//at.alicdn.com/t/c/font_3875185_dyta7vt4fx.woff2?t=1675218608608') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3875185_dyta7vt4fx.woff?t=1675218608608') format('woff'),
-       url('//at.alicdn.com/t/c/font_3875185_dyta7vt4fx.ttf?t=1675218608608') format('truetype');
+  font-family: "kirafont"; /* Project id 3875185 */
+  src: url('iconfont.woff2?t=1675251069985') format('woff2'),
+       url('iconfont.woff?t=1675251069985') format('woff'),
+       url('iconfont.ttf?t=1675251069985') format('truetype');
 }
 
 .kirafont {
@@ -21,48 +13,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-close:before {
-  content: "\eb6a";
+.icon-netease:before {
+  content: "\e76a";
 }
 
-.icon-exit-fullscreen:before {
-  content: "\ec13";
+.icon-user:before {
+  content: "\e7ae";
 }
 
-.icon-fullscreen:before {
-  content: "\ec14";
-}
-
-.icon-zoom-out:before {
-  content: "\ec32";
-}
-
-.icon-zoom-in:before {
-  content: "\ec33";
-}
-
-.icon-link:before {
-  content: "\ec7f";
-}
-
-.icon-menu:before {
-  content: "\e7f4";
-}
-
-.icon-caret-up:before {
-  content: "\e8ec";
-}
-
-.icon-bilibili:before {
-  content: "\e69e";
-}
-
-.icon-gitee:before {
-  content: "\e60c";
-}
-
-.icon-container:before {
-  content: "\e7b0";
+.icon-team:before {
+  content: "\e7af";
 }
 
 .icon-home:before {
@@ -77,23 +37,51 @@
   content: "\e7ec";
 }
 
+.icon-menu:before {
+  content: "\e7f4";
+}
+
 .icon-QQ:before {
   content: "\e882";
-}
-
-.icon-user:before {
-  content: "\e7ad";
-}
-
-.icon-team:before {
-  content: "\e7ae";
 }
 
 .icon-github:before {
   content: "\e885";
 }
 
-.icon-netease:before {
-  content: "\e65f";
+.icon-zoom-in:before {
+  content: "\ec33";
+}
+
+.icon-link:before {
+  content: "\ec7f";
+}
+
+.icon-caret-up:before {
+  content: "\e8ec";
+}
+
+.icon-container:before {
+  content: "\e724";
+}
+
+.icon-bilibili:before {
+  content: "\e75d";
+}
+
+.icon-exit-fullscreen:before {
+  content: "\ec13";
+}
+
+.icon-fullscreen:before {
+  content: "\ec14";
+}
+
+.icon-zoom-out:before {
+  content: "\ec32";
+}
+
+.icon-close:before {
+  content: "\eca0";
 }
 
