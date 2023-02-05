@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/css/layout.css">
 
 		
-		<title> 番茄炒蛋bot(FLbot)帮助文档v0.64 -  the Grimoire of Starlight</title>
+		<title> 番茄炒蛋bot(FLbot)帮助文档v0.66 -  the Grimoire of Starlight</title>
 		<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
 		<script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
 		<!-- lazyload -->
@@ -245,16 +245,16 @@
 			<img
 				data-src="http://ys-k.ysepan.com/544024547/713421300/kibtqyp883444735QKK0b/9.PNG"
 				data-sizes="auto"
-				alt="番茄炒蛋bot(FLbot)帮助文档v0.64"
+				alt="番茄炒蛋bot(FLbot)帮助文档v0.66"
 				class="lazyload  kira-post-cover-image"
 			/>
-			<h1>番茄炒蛋bot(FLbot)帮助文档v0.64</h1>
+			<h1>番茄炒蛋bot(FLbot)帮助文档v0.66</h1>
 		</div>
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2023年02月04日</a>
-			<a><i class="kirafont icon-areachart"></i>1.5k 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 6 分钟</a>
+			<a><i class="kirafont icon-areachart"></i>1.8k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 7 分钟</a>
 		</div>
 		<p><font size="6"><strong>目录</strong></font></p>
 <ol>
@@ -262,6 +262,7 @@
 <li><a href="#2">查询类指令</a></li>
 <li><a href="#3">功能类指令</a></li>
 <li><a href="#4">行动类指令</a></li>
+<li><a href="#5">更新日志</a></li>
 </ol>
 <hr>
 <p><a id="1"><font color="black" size="5"><strong>番茄炒蛋bot简介</strong></font></a></p>
@@ -281,11 +282,13 @@
 <li>签到积分机制(fl.qdhelp)：<ul>
 <li>获得的积分与今日最高人品(jrrp)，好感度(favor)与连续签到天数(ren)有关</li>
 <li>随机获得积分x，(8 + jrrp &#x2F; 250) ≤ x ≤ 50</li>
-<li>再计算额外奖励概率y，favor &#x2F; 10 ≤ y ≤ (ren - 1) &#x2F; 50，若左边界大于右边界则取左边界</li>
+<li>再计算额外奖励率y，favor &#x2F; 10 ≤ y ≤ (ren - 1) &#x2F; 50，若左边界大于右边界则取左边界</li>
 <li>最后得出今日获得的积分为 x(1+y)</li>
+<li>若银行账户内有存款，将会支付给您1％~3％的利息。</li>
 </ul>
 </li>
-<li>小技巧：如果身上rp重置卡数量充足且jrrp不高，可使用重置卡提高x的取值再签到</li>
+<li>小技巧1：如果身上rp重置卡数量充足且jrrp不高，可使用重置卡提高x的取值再签到</li>
+<li>小技巧2：可以在每天签到之前将所有的积分存到银行里获取最多的积分<del>也可以在签到之前玩几百局1A2B猜数字</del></li>
 <li>若断签可使用补签卡(fl.use 1)</li>
 </ul>
 <p><font color="black" size="4"><strong>fl.jrrp</strong></font></p>
@@ -389,6 +392,18 @@
 <li>添加自己的称谓，让芙兰以后这么叫你</li>
 <li><del>想取名老公就取名老公吧，口亨！我才不会吃醋</del></li>
 </ul>
+<p><font color="black" size="4"><strong>fl.bank</strong></font></p>
+<ul>
+<li>使用幻想乡交通银行储蓄功能</li>
+<li>有利息，需通过签到获得利息</li>
+<li>fl.bank 1 [积分数]：将积分存进银行</li>
+<li>fl.bank 2 [积分数]：从银行中取出积分</li>
+</ul>
+<p><font color="black" size="4"><strong>fl.borrow [QQ号] [积分数]</strong></font></p>
+<ul>
+<li>将银行卡内的指定积分汇款至别的账号的银行储蓄当中</li>
+<li>汇款的账号需至少触发过一次fl.bank功能</li>
+</ul>
 <p><font color="black" size="4"><strong>fl.favorup</strong></font></p>
 <ul>
 <li>提升与芙兰的好感度，需花费积分</li>
@@ -431,7 +446,21 @@
 <li>部分剧情可通过前往地点推进</li>
 </ul>
 <hr>
-<p>（最近一次更新于2023.02.04 13:21）</p>
+<p><a id="5"><font color="black" size="5"><strong>更新日志</strong></font></a></p>
+<p><font color="black" size="4"><strong>Version 0.66 (2023&#x2F;02&#x2F;06)</strong></font></p>
+<ul>
+<li>增加了fl.bank功能和fl.borrow功能</li>
+<li>修复了积分小数点位数爆炸的bug</li>
+<li>修复了jrrp最高记录刷新后无法使用积分相关功能的bug</li>
+</ul>
+<p><font color="black" size="4"><strong>Version 0.64 (2023&#x2F;02&#x2F;04)</strong></font></p>
+<ul>
+<li>增加了网页版帮助文档</li>
+<li>修改了help功能的输出方式</li>
+<li>增加了favorup、raffle、store、bag、use、place和move功能</li>
+<li>增加了8个新道具和5(+2)个新地点，共10种move事件和44种use事件</li>
+</ul>
+<p>（最近一次更新于2023.02.06 02:57）</p>
 
 	</article>
 
