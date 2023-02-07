@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/css/layout.css">
 
 		
-		<title> Hello World! -  the Grimoire of Starlight</title>
+		<title> 番茄炒蛋bot(FLbot)道具使用攻略v0.66 -  the Grimoire of Starlight</title>
 		<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
 		<script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
 		<!-- lazyload -->
@@ -241,32 +241,168 @@
 <div class="kira-post">
 	<article>
 		
-		<div
-			class="kira-post-cover"
-			style="padding-bottom: '62.18749999999999%'"
-		>
+		<div class="kira-post-cover">
 			<img
-				data-src="http://ys-k.ysepan.com/544024548/713421306/q762636349PJ5kibtqy88/welcome-cover.jpg"
+				data-src="http://ys-k.ysepan.com/544024546/713421298/l495525574MLKkibtqyca/7.jpg"
 				data-sizes="auto"
-				alt="Hello World!"
+				alt="番茄炒蛋bot(FLbot)道具使用攻略v0.66"
 				class="lazyload  kira-post-cover-image"
 			/>
-			<h1>Hello World!</h1>
+			<h1>番茄炒蛋bot(FLbot)道具使用攻略v0.66</h1>
 		</div>
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
-			<a><i class="kirafont icon-calendar-fill"></i>2023年01月31日</a>
-			<a><i class="kirafont icon-areachart"></i>47 字</a>
+			<a><i class="kirafont icon-calendar-fill"></i>2023年02月07日</a>
+			<a><i class="kirafont icon-areachart"></i>410 字</a>
 			<a><i class="kirafont icon-time-circle-fill"></i>大概 1 分钟</a>
 		</div>
-		<p>建了个博客，捣鼓了一晚上。结果没想到是主题设置了一晚上。<br>家里网络实在是太慢了啦！！！！Orz<br>这篇文章也拿来试试看。</p>
+		<p><font color="black" size="4"><strong>关于fl.move和fl.use的使用方法，请参见该文章：</strong></font><br><a href="https://star11ght.github.io/2023/02/04/FLbot-HelpDoc/">https://star11ght.github.io/2023/02/04/FLbot-HelpDoc/</a></p>
+<p>关于表格：P为积分，favor为好感度，事件前的括号为触发概率，带“且”字的与前者不可同时触发</p>
+<p><font color="black" size="4"><strong>① fl.move</strong></font></p>
+<p>特殊事件：移动时有5%的概率会被帝绊倒并失去20P</p>
+<table>
+<thead>
+<tr>
+<th>fl.move</th>
+<th>当日初次</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>人间之里</td>
+<td>无</td>
+</tr>
+<tr>
+<td>雾之湖</td>
+<td>(29.99%)+199.99P</td>
+</tr>
+<tr>
+<td>红魔馆门口<br>(favor≥15)</td>
+<td>无</td>
+</tr>
+<tr>
+<td>红魔馆门口<br>(favor&lt;15)</td>
+<td>(70%)美铃醒着<br>且(30%)美铃睡着</td>
+</tr>
+<tr>
+<td>红魔馆<br>(地下室)</td>
+<td>(20%)favor+1<br>且(40%)+100P</td>
+</tr>
+<tr>
+<td>红魔馆<br>(图书馆)</td>
+<td>无</td>
+</tr>
+<tr>
+<td>红魔馆<br>(大堂中央)</td>
+<td>无</td>
+</tr>
+<tr>
+<td>红魔馆<br>(主殿堂)</td>
+<td>(25%)favor&lt;20时favor+1，favor≥20时+250P<br>且(25%)+50P</td>
+</tr>
+</tbody></table>
+<p><font color="black" size="4"><strong>② fl.use</strong></font></p>
+<p>横向为道具序号，纵向为使用地点</p>
+<table>
+<thead>
+<tr>
+<th>fl.use</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>人间之里</td>
+<td>无</td>
+<td>无</td>
+<td>(50%)+150P</td>
+<td>无</td>
+<td>无</td>
+<td>+250P</td>
+</tr>
+<tr>
+<td>雾之湖</td>
+<td>(50%)+199.99P</td>
+<td>(75%)+199.99P</td>
+<td>无</td>
+<td>无</td>
+<td>+199.99P</td>
+<td>+250P</td>
+</tr>
+<tr>
+<td>红魔馆门口<br>(favor≥15)</td>
+<td>无</td>
+<td>不消耗</td>
+<td>不消耗</td>
+<td>让美铃睡着</td>
+<td>不消耗</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>红魔馆门口<br>(醒着的美铃)</td>
+<td>让美铃睡着</td>
+<td>不消耗</td>
+<td>不消耗</td>
+<td>无</td>
+<td>不消耗</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>红魔馆门口<br>(睡着的美铃)</td>
+<td>让美铃醒来<br>+150P</td>
+<td>无</td>
+<td>无</td>
+<td>无</td>
+<td>+250P</td>
+<td>+300P</td>
+</tr>
+<tr>
+<td>红魔馆<br>(地下室)</td>
+<td>-100P</td>
+<td>+150P</td>
+<td>(20%)favor+1</td>
+<td>+50P<br>(10%)favor+1</td>
+<td>无</td>
+<td>(30%)favor+2<br>且(30%)+200P</td>
+</tr>
+<tr>
+<td>红魔馆<br>(图书馆)</td>
+<td>其它随机食物</td>
+<td>无</td>
+<td>不消耗</td>
+<td>+100P</td>
+<td>无</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>红魔馆<br>(大堂中央)</td>
+<td>不消耗<br>且被送回门口</td>
+<td>(75%)+123P<br>且(25%)被送回门口</td>
+<td>+111P</td>
+<td>(50%)+150P<br>且(50%)+50P</td>
+<td>不消耗</td>
+<td>+220P</td>
+</tr>
+<tr>
+<td>红魔馆<br>(主殿堂)</td>
+<td>不消耗<br>且被送回门口</td>
+<td>(50%)+222P</td>
+<td>(15%)favor+1且(75%)+50P</td>
+<td>不消耗</td>
+<td>(60%)+229.99P</td>
+<td>不消耗</td>
+</tr>
+</tbody></table>
 
 	</article>
 
 	 
     <div class="kira-post-copyright">
         <strong>本文作者：</strong>MiyakTik<br>
-        <strong>本文链接：</strong><a href="https://star11ght.github.io/2023/01/31/Hello%20World!/" title="https:&#x2F;&#x2F;star11ght.github.io&#x2F;2023&#x2F;01&#x2F;31&#x2F;Hello World!&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;star11ght.github.io&#x2F;2023&#x2F;01&#x2F;31&#x2F;Hello World!&#x2F;</a><br>
+        <strong>本文链接：</strong><a href="https://star11ght.github.io/2023/02/07/FLbot-MoveAndUse/" title="https:&#x2F;&#x2F;star11ght.github.io&#x2F;2023&#x2F;02&#x2F;07&#x2F;FLbot-MoveAndUse&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;star11ght.github.io&#x2F;2023&#x2F;02&#x2F;07&#x2F;FLbot-MoveAndUse&#x2F;</a><br>
         
             <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
         
@@ -282,7 +418,7 @@
 	<div class="kira-post-meta kira-rainbow">
 		
 		
-			<a class="kirafont icon-tag-fill -none-link" href="/tags/Chat/" rel="tag">Chat</a>
+			<a class="kirafont icon-tag-fill -none-link" href="/tags/FLbot/" rel="tag">FLbot</a>
 		
 	</div>
 	
