@@ -129,7 +129,7 @@
 <li>签到积分机制(fl.qdhelp)：<ul>
 <li>获得的积分与今日最高人品(jrrp)，好感度(favor)与连续签到天数(ren)有关</li>
 <li>随机获得积分x，(8 + jrrp &#x2F; 250) ≤ x ≤ 50</li>
-<li>再计算额外奖励率y，favor &#x2F; 10 ≤ y ≤ (ren - 1) &#x2F; 50，若左边界大于右边界则取左边界</li>
+<li>再计算额外奖励率y，favor &#x2F; 10 ≤ y ≤ (ren - 1) &#x2F; 50，若左边界大于右边界则两边界互换</li>
 <li>最后得出今日获得的积分为 x(1+y)</li>
 <li>若银行账户内有存款，将会支付给您1％~3％的利息。</li>
 </ul>
@@ -307,7 +307,7 @@
 <li>增加了favorup、raffle、store、bag、use、place和move功能</li>
 <li>增加了8个新道具和5(+2)个新地点，共10种move事件和44种use事件</li>
 </ul>
-<p>（最近一次更新于2023.02.06 02:57）</p>
+<p>（最近一次更新于2023.02.08 01:45）</p>
 ]]></content>
       <tags>
         <tag>FLbot</tag>
@@ -317,7 +317,7 @@
     <title>番茄炒蛋bot(FLbot)道具使用攻略v0.66</title>
     <url>/2023/02/07/FLbot-MoveAndUse/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><font color="black" size="4"><strong>关于fl.move和fl.use的使用方法，请参见该文章：</strong></font><br><a href="https://star11ght.github.io/2023/02/04/FLbot-HelpDoc/">https://star11ght.github.io/2023/02/04/FLbot-HelpDoc/</a></p>
-<p>关于表格：P为积分，favor为好感度，事件前的括号为触发概率，带“且”字的与前者不可同时触发</p>
+<p>关于表格：P为积分，favor为好感度，事件前的括号为触发概率，不带“且”字的不可与前者(或后者)同时触发</p>
 <p><font color="black" size="4"><strong>① fl.move</strong></font></p>
 <p>特殊事件：移动时有5%的概率会被帝绊倒并失去20P</p>
 <table>
@@ -341,11 +341,11 @@
 </tr>
 <tr>
 <td>红魔馆门口<br>(favor&lt;15)</td>
-<td>(70%)美铃醒着<br>且(30%)美铃睡着</td>
+<td>(70%)美铃醒着<br>(30%)美铃睡着</td>
 </tr>
 <tr>
 <td>红魔馆<br>(地下室)</td>
-<td>(20%)favor+1<br>且(40%)+100P</td>
+<td>(20%)favor+1<br>(40%)+100P</td>
 </tr>
 <tr>
 <td>红魔馆<br>(图书馆)</td>
@@ -357,7 +357,7 @@
 </tr>
 <tr>
 <td>红魔馆<br>(主殿堂)</td>
-<td>(25%)favor&lt;20时favor+1，favor≥20时+250P<br>且(25%)+50P</td>
+<td>(25%)favor&lt;20时favor+1，favor≥20时+250P<br>(25%)+50P</td>
 </tr>
 </tbody></table>
 <p><font color="black" size="4"><strong>② fl.use</strong></font></p>
@@ -386,13 +386,13 @@
 </tr>
 <tr>
 <td>2 红魔馆门口<br>(醒着的美铃)</td>
-<td>(favor&lt;15)让美铃睡着</td>
+<td>(favor&lt;15)且让美铃睡着</td>
 <td>让美铃睡着</td>
 <td>不消耗</td>
 </tr>
 <tr>
 <td>2-0 红魔馆门口<br>(睡着的美铃)</td>
-<td>让美铃醒来<br>+150P</td>
+<td>让美铃醒来<br>且+250P</td>
 <td>无</td>
 <td>无</td>
 </tr>
@@ -400,7 +400,7 @@
 <td>2-1 红魔馆<br>(地下室)</td>
 <td>-100P</td>
 <td>+150P</td>
-<td>(20%)favor+1</td>
+<td>(50-favor×2%)favor+1<br>(favor≥25时10%)+500P</td>
 </tr>
 <tr>
 <td>2-2 红魔馆<br>(图书馆)</td>
@@ -411,14 +411,14 @@
 <tr>
 <td>2-3 红魔馆<br>(大堂中央)</td>
 <td>不消耗<br>被送回门口</td>
-<td>(75%)+123P<br>且(25%)被送回门口</td>
+<td>(75%)+123P<br>(25%)被送回门口</td>
 <td>+111P</td>
 </tr>
 <tr>
 <td>2-4 红魔馆<br>(主殿堂)</td>
-<td>不消耗<br>被送回门口</td>
+<td>不消耗<br>且被送回门口</td>
 <td>(50%)+222P</td>
-<td>(15%)favor+1<br>且(75%)+50P</td>
+<td>(40-favor×2%)favor+1<br>(favor≥20时25%)+150P<br>均不符合条件+50P</td>
 </tr>
 </tbody></table>
 <p>序号6~8：</p>
@@ -447,7 +447,7 @@
 <td>2 红魔馆门口<br>(醒着的美铃)</td>
 <td>不消耗</td>
 <td>不消耗</td>
-<td>(favor≥15)</td>
+<td>不消耗</td>
 </tr>
 <tr>
 <td>2-0 红魔馆门口<br>(睡着的美铃)</td>
@@ -457,9 +457,9 @@
 </tr>
 <tr>
 <td>2-1 红魔馆<br>(地下室)</td>
-<td>+50P<br>(10%)favor+1</td>
+<td>+50P且<br>(30-favor×2%)favor+1<br>(favor≥15时2%)favor+1</td>
 <td>无</td>
-<td>(30%)favor+2<br>且(30%)+200P</td>
+<td>(60-favor×2%或favor≥30时2%)favor+2<br>(favor×2%或favor≥30时58%)+200P</td>
 </tr>
 <tr>
 <td>2-2 红魔馆<br>(图书馆)</td>
@@ -469,7 +469,7 @@
 </tr>
 <tr>
 <td>2-3 红魔馆<br>(大堂中央)</td>
-<td>(50%)+150P<br>且(50%)+50P</td>
+<td>(50%)+150P<br>(50%)+50P</td>
 <td>不消耗</td>
 <td>+220P</td>
 </tr>
