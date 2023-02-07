@@ -253,8 +253,8 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2023年02月07日</a>
-			<a><i class="kirafont icon-areachart"></i>410 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 1 分钟</a>
+			<a><i class="kirafont icon-areachart"></i>530 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 2 分钟</a>
 		</div>
 		<p><font color="black" size="4"><strong>关于fl.move和fl.use的使用方法，请参见该文章：</strong></font><br><a href="https://star11ght.github.io/2023/02/04/FLbot-HelpDoc/">https://star11ght.github.io/2023/02/04/FLbot-HelpDoc/</a></p>
 <p>关于表格：P为积分，favor为好感度，事件前的括号为触发概率，带“且”字的与前者不可同时触发</p>
@@ -301,96 +301,120 @@
 </tr>
 </tbody></table>
 <p><font color="black" size="4"><strong>② fl.use</strong></font></p>
-<p>横向为道具序号，纵向为使用地点</p>
+<p>横向为道具序号，纵向为使用地点。<br>序号为1(补签卡)和2(rp重置卡)的物品在任何地点下使用效果均相同。</p>
+<p>序号3~5：</p>
 <table>
 <thead>
 <tr>
 <th>fl.use</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
+<th>3 ⑨转大肠</th>
+<th>4 草莓蛋糕</th>
+<th>5 红苹果</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>人间之里</td>
+<td>0 人间之里</td>
 <td>无</td>
 <td>无</td>
 <td>(50%)+150P</td>
+</tr>
+<tr>
+<td>1 雾之湖</td>
+<td>(50%)+199.99P</td>
+<td>(75%)+199.99P</td>
+<td>无</td>
+</tr>
+<tr>
+<td>2 红魔馆门口<br>(醒着的美铃)</td>
+<td>(favor&lt;15)让美铃睡着</td>
+<td>让美铃睡着</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>2-0 红魔馆门口<br>(睡着的美铃)</td>
+<td>让美铃醒来<br>+150P</td>
+<td>无</td>
+<td>无</td>
+</tr>
+<tr>
+<td>2-1 红魔馆<br>(地下室)</td>
+<td>-100P</td>
+<td>+150P</td>
+<td>(20%)favor+1</td>
+</tr>
+<tr>
+<td>2-2 红魔馆<br>(图书馆)</td>
+<td>其它随机食物</td>
+<td>无</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>2-3 红魔馆<br>(大堂中央)</td>
+<td>不消耗<br>被送回门口</td>
+<td>(75%)+123P<br>且(25%)被送回门口</td>
+<td>+111P</td>
+</tr>
+<tr>
+<td>2-4 红魔馆<br>(主殿堂)</td>
+<td>不消耗<br>被送回门口</td>
+<td>(50%)+222P</td>
+<td>(15%)favor+1<br>且(75%)+50P</td>
+</tr>
+</tbody></table>
+<p>序号6~8：</p>
+<table>
+<thead>
+<tr>
+<th>fl.use</th>
+<th>6 红茶玛奇朵</th>
+<th>7 冰糖雪糕</th>
+<th>8 黑松露炒饭</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0 人间之里</td>
 <td>无</td>
 <td>无</td>
 <td>+250P</td>
 </tr>
 <tr>
-<td>雾之湖</td>
-<td>(50%)+199.99P</td>
-<td>(75%)+199.99P</td>
-<td>无</td>
+<td>1 雾之湖</td>
 <td>无</td>
 <td>+199.99P</td>
 <td>+250P</td>
 </tr>
 <tr>
-<td>红魔馆门口<br>(favor≥15)</td>
-<td>无</td>
+<td>2 红魔馆门口<br>(醒着的美铃)</td>
 <td>不消耗</td>
 <td>不消耗</td>
-<td>让美铃睡着</td>
-<td>不消耗</td>
-<td>不消耗</td>
+<td>(favor≥15)</td>
 </tr>
 <tr>
-<td>红魔馆门口<br>(醒着的美铃)</td>
-<td>让美铃睡着</td>
-<td>不消耗</td>
-<td>不消耗</td>
-<td>无</td>
-<td>不消耗</td>
-<td>不消耗</td>
-</tr>
-<tr>
-<td>红魔馆门口<br>(睡着的美铃)</td>
-<td>让美铃醒来<br>+150P</td>
-<td>无</td>
-<td>无</td>
+<td>2-0 红魔馆门口<br>(睡着的美铃)</td>
 <td>无</td>
 <td>+250P</td>
 <td>+300P</td>
 </tr>
 <tr>
-<td>红魔馆<br>(地下室)</td>
-<td>-100P</td>
-<td>+150P</td>
-<td>(20%)favor+1</td>
+<td>2-1 红魔馆<br>(地下室)</td>
 <td>+50P<br>(10%)favor+1</td>
 <td>无</td>
 <td>(30%)favor+2<br>且(30%)+200P</td>
 </tr>
 <tr>
-<td>红魔馆<br>(图书馆)</td>
-<td>其它随机食物</td>
-<td>无</td>
-<td>不消耗</td>
+<td>2-2 红魔馆<br>(图书馆)</td>
 <td>+100P</td>
 <td>无</td>
 <td>不消耗</td>
 </tr>
 <tr>
-<td>红魔馆<br>(大堂中央)</td>
-<td>不消耗<br>且被送回门口</td>
-<td>(75%)+123P<br>且(25%)被送回门口</td>
-<td>+111P</td>
+<td>2-3 红魔馆<br>(大堂中央)</td>
 <td>(50%)+150P<br>且(50%)+50P</td>
 <td>不消耗</td>
 <td>+220P</td>
 </tr>
 <tr>
-<td>红魔馆<br>(主殿堂)</td>
-<td>不消耗<br>且被送回门口</td>
-<td>(50%)+222P</td>
-<td>(15%)favor+1且(75%)+50P</td>
+<td>2-4 红魔馆<br>(主殿堂)</td>
 <td>不消耗</td>
 <td>(60%)+229.99P</td>
 <td>不消耗</td>
