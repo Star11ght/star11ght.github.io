@@ -328,35 +328,35 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>人间之里</td>
+<td>0 人间之里</td>
 <td>无</td>
 </tr>
 <tr>
-<td>雾之湖</td>
+<td>1 雾之湖</td>
 <td>(29.99%)+199.99P</td>
 </tr>
 <tr>
-<td>红魔馆门口<br>(favor≥15)</td>
+<td>2 红魔馆门口<br>(favor≥15)</td>
 <td>无</td>
 </tr>
 <tr>
-<td>红魔馆门口<br>(favor&lt;15)</td>
+<td>2 红魔馆门口<br>(favor&lt;15)</td>
 <td>(70%)美铃醒着<br>(30%)美铃睡着</td>
 </tr>
 <tr>
-<td>红魔馆<br>(地下室)</td>
-<td>(20%)favor+1<br>(40%)+100P</td>
+<td>2-1 红魔馆<br>(地下室)</td>
+<td>(60-favor×2%)favor+1<br>(favor×2%)+100P</td>
 </tr>
 <tr>
-<td>红魔馆<br>(图书馆)</td>
+<td>2-2 红魔馆<br>(图书馆)</td>
 <td>无</td>
 </tr>
 <tr>
-<td>红魔馆<br>(大堂中央)</td>
+<td>2-3 红魔馆<br>(大堂中央)</td>
 <td>无</td>
 </tr>
 <tr>
-<td>红魔馆<br>(主殿堂)</td>
+<td>2-4 红魔馆<br>(主殿堂)</td>
 <td>(25%)favor&lt;20时favor+1，favor≥20时+250P<br>(25%)+50P</td>
 </tr>
 </tbody></table>
