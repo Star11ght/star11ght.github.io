@@ -101,7 +101,7 @@
       </tags>
   </entry>
   <entry>
-    <title>番茄炒蛋bot(FLbot)帮助文档v0.66</title>
+    <title>番茄炒蛋bot(FLbot)帮助文档v0.77</title>
     <url>/2023/02/04/FLbot-HelpDoc/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><font size="6"><strong>目录</strong></font></p>
 <ol>
@@ -121,6 +121,7 @@
 <p><img src="http://ys-f.ysepan.com/544024508/713425368/m76263J22KPU3mgcvny09/FLbot_5.JPG" alt="商店功能"><br><em>商店功能</em></p>
 <p><img src="http://ys-f.ysepan.com/544024509/713425370/mgcvnyu55455F36JNT7cd/FLbot_7.JPG" alt="查涩图功能"><br><em>查涩图功能</em></p>
 <p>Bot源码：<a href="https://github.com/Star11ght/FLbot">https://github.com/Star11ght/FLbot</a></p>
+<p>额外提示：[]符号表示输入限定的内容，实际使用fl时无需额外添加</p>
 <hr>
 <p><a id="2"><font color="black" size="5"><strong>查询类指令</strong></font></a></p>
 <p><font color="black" size="4"><strong>fl.qd</strong></font></p>
@@ -232,6 +233,21 @@
 <li>让芙兰重复你发的字符串，简单粗暴</li>
 <li><del>请不要尝试与星光相关的字符串，这改变不了他tljl的事实</del></li>
 </ul>
+<p><font color="black" size="4"><strong>fl.news</strong></font></p>
+<ul>
+<li>获取今日的60秒新闻图片，大约每天凌晨两点更新</li>
+<li>每天八点整fl也会在群里自动发送图片</li>
+</ul>
+<p><font color="black" size="4"><strong>fl.head [(可选)QQ号]</strong></font></p>
+<ul>
+<li>获取该QQ账号的头像</li>
+<li>若不输入QQ号则将获取自己的头像</li>
+</ul>
+<p><font color="black" size="4"><strong>fl.ai&#x2F;ai2&#x2F;aitalk [聊天内容]</strong></font></p>
+<ul>
+<li>与AI聊天机器人对话，ai和ai2为两个不同的机器人</li>
+<li>aitalk可让两个机器人互相对话</li>
+</ul>
 <hr>
 <p><a id="4"><font color="black" size="5"><strong>行动类指令</strong></font></a></p>
 <p><font color="black" size="4"><strong>fl.name [名字]</strong></font></p>
@@ -294,6 +310,11 @@
 </ul>
 <hr>
 <p><a id="5"><font color="black" size="5"><strong>更新日志</strong></font></a></p>
+<p><font color="black" size="4"><strong>Version 0.77 (2023&#x2F;02&#x2F;17)</strong></font></p>
+<ul>
+<li>增加了news、head、ai功能</li>
+<li>增加了凌晨12点倒数日和早上8点60秒新闻的功能</li>
+</ul>
 <p><font color="black" size="4"><strong>Version 0.66 (2023&#x2F;02&#x2F;06)</strong></font></p>
 <ul>
 <li>增加了fl.bank功能和fl.borrow功能</li>
@@ -307,14 +328,14 @@
 <li>增加了favorup、raffle、store、bag、use、place和move功能</li>
 <li>增加了8个新道具和5(+2)个新地点，共10种move事件和44种use事件</li>
 </ul>
-<p>（最近一次更新于2023.02.08 01:45）</p>
+<p>（最近一次更新于2023.02.17 23:30）</p>
 ]]></content>
       <tags>
         <tag>FLbot</tag>
       </tags>
   </entry>
   <entry>
-    <title>番茄炒蛋bot(FLbot)道具使用攻略v0.66</title>
+    <title>番茄炒蛋bot(FLbot)道具使用攻略</title>
     <url>/2023/02/07/FLbot-MoveAndUse/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><font color="black" size="4"><strong>关于fl.move和fl.use的使用方法，请参见该文章：</strong></font><br><a href="https://star11ght.github.io/2023/02/04/FLbot-HelpDoc/">https://star11ght.github.io/2023/02/04/FLbot-HelpDoc/</a></p>
 <p>关于表格：P为积分，favor为好感度，事件前的括号为触发概率，不带“且”字的不可与前者(或后者)同时触发</p>
