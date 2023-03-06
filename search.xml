@@ -501,6 +501,106 @@
 <td>不消耗</td>
 </tr>
 </tbody></table>
+<p>序号9~11：</p>
+<table>
+<thead>
+<tr>
+<th>fl.use</th>
+<th>6 红茶玛奇朵</th>
+<th>7 冰糖雪糕</th>
+<th>8 黑松露炒饭</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0 人间之里</td>
+<td>无</td>
+<td>无</td>
+<td>+200P</td>
+</tr>
+<tr>
+<td>1 雾之湖</td>
+<td>无</td>
+<td>+149.99P</td>
+<td>+199.99P</td>
+</tr>
+<tr>
+<td>2 红魔馆门口<br>(醒着的美铃)</td>
+<td>让美铃睡着</td>
+<td>不消耗</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>2-0 红魔馆门口<br>(睡着的美铃)</td>
+<td>无</td>
+<td>(40%)+250P</td>
+<td>(50%)+300P</td>
+</tr>
+<tr>
+<td>2-1 红魔馆<br>(地下室)</td>
+<td>+50P且<br>(30-favor×2%)favor+1<br>(favor≥15时2%)favor+1</td>
+<td>无</td>
+<td>(60-favor×2%<br>或favor≥30时2%)favor+2<br>(favor×2%<br>或favor≥30时58%)+200P</td>
+</tr>
+<tr>
+<td>2-2 红魔馆<br>(图书馆)</td>
+<td>+100P</td>
+<td>无</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>2-3 红魔馆<br>(大堂中央)</td>
+<td>(50%)+150P<br>(50%)+50P</td>
+<td>不消耗</td>
+<td>+220P</td>
+</tr>
+<tr>
+<td>2-4 红魔馆<br>(主殿堂)</td>
+<td>不消耗</td>
+<td>(50%)+229.99P</td>
+<td>不消耗</td>
+</tr>
+</tbody></table>
+<p>序号21：</p>
+<table>
+<thead>
+<tr>
+<th>fl.use</th>
+<th>21 普通的鱼竿</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0 人间之里</td>
+<td>无</td>
+</tr>
+<tr>
+<td>1 雾之湖</td>
+<td>(2.85%)rp重置卡<br>(4.29%)+200P<br>(8.57%)琪露诺冰块<br>(8.57%)冰冻的鱼<br>(8.57%)烧烤机或+150P<br>(35.7%)随机东方角色</td>
+</tr>
+<tr>
+<td>2 红魔馆门口<br>(醒着的美铃)</td>
+<td>无</td>
+</tr>
+<tr>
+<td>2-0 红魔馆门口<br>(睡着的美铃)</td>
+<td>无</td>
+</tr>
+<tr>
+<td>2-1 红魔馆<br>(地下室)</td>
+<td>无</td>
+</tr>
+<tr>
+<td>2-2 红魔馆<br>(图书馆)</td>
+<td></td>
+</tr>
+<tr>
+<td>2-3 红魔馆<br>(大堂中央)</td>
+<td>被送回门口</td>
+</tr>
+<tr>
+<td>2-4 红魔馆<br>(主殿堂)</td>
+<td>无</td>
+</tr>
+</tbody></table>
 ]]></content>
       <tags>
         <tag>FLbot</tag>
