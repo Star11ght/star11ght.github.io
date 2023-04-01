@@ -132,7 +132,7 @@
 <li>随机获得积分x，(8 + jrrp &#x2F; 250) ≤ x ≤ 50</li>
 <li>再计算额外奖励率y，favor &#x2F; 10 ≤ y ≤ (ren - 1) &#x2F; 50，若左边界大于右边界则两边界互换</li>
 <li>最后得出今日获得的积分为 x(1+y)</li>
-<li>若银行账户内有存款，将会支付给您1％~3％的利息。</li>
+<li>若银行账户内有存款，将会支付给您1％<del>3％的利息（存款大于10000时为1％</del>2％）。</li>
 </ul>
 </li>
 <li>小技巧1：如果身上rp重置卡数量充足且jrrp不高，可使用重置卡提高x的取值再签到</li>
@@ -228,6 +228,10 @@
 <li>不加tag为随机出图，加tag根据tag搜索指定图片，多个tag间用中文逗号隔开</li>
 <li><del>保留了R-18功能但是我不说怎么触发还是保群要紧.jpg</del></li>
 </ul>
+<p><font color="black" size="4"><strong>fl.read [字符串]</strong></font></p>
+<ul>
+<li>让芙兰用语音复述你发的字符串，简单粗暴</li>
+</ul>
 <p><font color="black" size="4"><strong>fl.repeat [字符串]</strong></font></p>
 <ul>
 <li>让芙兰重复你发的字符串，简单粗暴</li>
@@ -242,6 +246,12 @@
 <ul>
 <li>获取该QQ账号的头像</li>
 <li>若不输入QQ号则将获取自己的头像</li>
+</ul>
+<p><font color="black" size="4"><strong>fl.days [YYYY-MM-DD] [事件名称]</strong></font></p>
+<ul>
+<li>设定倒数日事件，日期格式为四位年份数-两位月份数-两位天数，如2020年1月1日即为2020-01-01</li>
+<li>每天凌晨12点芙兰会在主群(719317473)发送所有已设定的倒数日事件的剩余天数</li>
+<li>发送fl.days del可删除自己的倒数日事件</li>
 </ul>
 <p><font color="black" size="4"><strong>fl.ai&#x2F;ai2&#x2F;aitalk [聊天内容]</strong></font></p>
 <ul>
@@ -310,6 +320,13 @@
 </ul>
 <hr>
 <p><a id="5"><font color="black" size="5"><strong>更新日志</strong></font></a></p>
+<p><font color="black" size="4"><strong>Version 1.00 (2023&#x2F;04&#x2F;01)</strong></font></p>
+<ul>
+<li>将FL迁移至阿里云服务器，修复了众多BUG</li>
+<li>增加了fl.days（倒数日功能），修复了fl.read功能</li>
+<li>修改了银行功能，存钱取钱需支付1.5%的服务费</li>
+<li>优化了主函数代码</li>
+</ul>
 <p><font color="black" size="4"><strong>Version 0.77 (2023&#x2F;02&#x2F;17)</strong></font></p>
 <ul>
 <li>增加了news、head、ai功能</li>
@@ -328,7 +345,7 @@
 <li>增加了favorup、raffle、store、bag、use、place和move功能</li>
 <li>增加了8个新道具和5(+2)个新地点，共10种move事件和44种use事件</li>
 </ul>
-<p>（最近一次更新于2023.02.17 23:30）</p>
+<p>（最近一次更新于2023.04.01 21:27）</p>
 ]]></content>
       <tags>
         <tag>FLbot</tag>
@@ -506,58 +523,75 @@
 <thead>
 <tr>
 <th>fl.use</th>
-<th>6 红茶玛奇朵</th>
-<th>7 冰糖雪糕</th>
-<th>8 黑松露炒饭</th>
+<th>9 琪露诺冰块</th>
+<th>10 冰冻的鱼</th>
+<th>11 草莓奶油</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>0 人间之里</td>
 <td>无</td>
+<td>不消耗</td>
 <td>无</td>
-<td>+200P</td>
 </tr>
 <tr>
 <td>1 雾之湖</td>
 <td>无</td>
-<td>+149.99P</td>
-<td>+199.99P</td>
+<td>+100P</td>
+<td>+220P</td>
 </tr>
 <tr>
 <td>2 红魔馆门口<br>(醒着的美铃)</td>
-<td>让美铃睡着</td>
+<td>不消耗</td>
 <td>不消耗</td>
 <td>不消耗</td>
 </tr>
 <tr>
 <td>2-0 红魔馆门口<br>(睡着的美铃)</td>
 <td>无</td>
-<td>(40%)+250P</td>
-<td>(50%)+300P</td>
+<td>不消耗</td>
+<td>让美铃醒来</td>
 </tr>
 <tr>
 <td>2-1 红魔馆<br>(地下室)</td>
-<td>+50P且<br>(30-favor×2%)favor+1<br>(favor≥15时2%)favor+1</td>
 <td>无</td>
-<td>(60-favor×2%<br>或favor≥30时2%)favor+2<br>(favor×2%<br>或favor≥30时58%)+200P</td>
+<td>不消耗</td>
+<td>不消耗</td>
 </tr>
 <tr>
 <td>2-2 红魔馆<br>(图书馆)</td>
-<td>+100P</td>
+<td>不消耗</td>
 <td>无</td>
-<td>不消耗</td>
-</tr>
-<tr>
-<td>2-3 红魔馆<br>(大堂中央)</td>
-<td>(50%)+150P<br>(50%)+50P</td>
-<td>不消耗</td>
 <td>+220P</td>
 </tr>
 <tr>
+<td>2-3 红魔馆<br>(大堂中央)</td>
+<td>+100P</td>
+<td>(50%)+200P</td>
+<td>(30%)+300P<br>(70%)+50P</td>
+</tr>
+<tr>
 <td>2-4 红魔馆<br>(主殿堂)</td>
+<td>无</td>
 <td>不消耗</td>
-<td>(50%)+229.99P</td>
 <td>不消耗</td>
+</tr>
+</tbody></table>
+<p>序号12~13，23：</p>
+<table>
+<thead>
+<tr>
+<th>fl.use</th>
+<th>12 苹果草莓派</th>
+<th>13 雾之矿泉水</th>
+<th>23 木棍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>星光代码没写完……（偷懒中.jpg）</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody></table>
 <p>序号21：</p>
@@ -574,7 +608,7 @@
 </tr>
 <tr>
 <td>1 雾之湖</td>
-<td>(2.85%)rp重置卡<br>(4.29%)+200P<br>(8.57%)琪露诺冰块<br>(8.57%)冰冻的鱼<br>(8.57%)烧烤机或+150P<br>(35.7%)随机东方角色</td>
+<td>(3.63%)rp重置卡<br>(10.91%)烧烤机或+150P<br>(45.4%)随机东方角色</td>
 </tr>
 <tr>
 <td>2 红魔馆门口<br>(醒着的美铃)</td>
@@ -590,7 +624,7 @@
 </tr>
 <tr>
 <td>2-2 红魔馆<br>(图书馆)</td>
-<td></td>
+<td>无</td>
 </tr>
 <tr>
 <td>2-3 红魔馆<br>(大堂中央)</td>
@@ -601,6 +635,80 @@
 <td>无</td>
 </tr>
 </tbody></table>
+<p>序号22（只与使用物品有关，与地点无关）：</p>
+<table>
+<thead>
+<tr>
+<th>fl.use</th>
+<th>22 烧烤机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 补签卡</td>
+<td>(50%)变成rp重置卡</td>
+</tr>
+<tr>
+<td>2 rp重置卡</td>
+<td>(50%)变成补签卡</td>
+</tr>
+<tr>
+<td>3 ⑨转大肠</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>4 草莓蛋糕</td>
+<td>变成草莓奶油</td>
+</tr>
+<tr>
+<td>5 红苹果</td>
+<td>(单独烤)无<br>(包内有草莓奶油)变成苹果草莓派</td>
+</tr>
+<tr>
+<td>6 红茶玛奇朵</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>7 冰糖雪糕</td>
+<td>变成木棍</td>
+</tr>
+<tr>
+<td>8 黑松露炒饭</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>9 琪露诺冰块</td>
+<td>变成雾之矿泉水</td>
+</tr>
+<tr>
+<td>10 冰冻的鱼</td>
+<td>+250P</td>
+</tr>
+<tr>
+<td>11 草莓奶油</td>
+<td>+50P</td>
+</tr>
+<tr>
+<td>12 苹果草莓派</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>13 雾之矿泉水</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>21 普通的鱼竿</td>
+<td>无</td>
+</tr>
+<tr>
+<td>22 烧烤机</td>
+<td>不消耗</td>
+</tr>
+<tr>
+<td>23 木棍</td>
+<td>无</td>
+</tr>
+</tbody></table>
+<p>（最后更新于2023.04.01 22:00）</p>
 ]]></content>
       <tags>
         <tag>FLbot</tag>
