@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html 
+	lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+<link rel="stylesheet" href="/css/layout.css">
+
+		
+		<title> DarkBug的完美算法教室01：并查集的使用 -  the Grimoire of Starlight</title>
+		<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
+		<script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+		<!-- lazyload -->
+		<script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+		<!-- smooth-scrolling -->
+		<script src="https://unpkg.com/smooth-scrolling.js@latest"></script>
+		<!-- highlight -->
+		<link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark.min.css" />
+		<script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+		<!-- 预置 kiraicon -->
+		<link rel="stylesheet" href="/lib/iconfont/iconfont.css" crossorigin />
+		<link
+			rel="shortcut icon"
+			href="http://ys-k.ysepan.com/544024548/713421304/q762636349PJ3kibtqy3a/favicon.png"
+			type="image/png"
+		/>
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		<div
+			class="kira-background"
+			style="background-image: url('http://ys-k.ysepan.com/544024548/713421306/q762636349PJ5kibtqy88/welcome-cover.jpg')"
+		></div>
+		<div class="kira-header">
+    <a
+        class="kira-drawer-button mdui-ripple"
+        title="导航栏"
+        onclick="document.querySelector('.kira-sidebar-modal').classList.add('show');document.querySelector('.kira-sidebar#sidebar').classList.add('show');"
+    >
+        <i class="kirafont icon-menu"></i>
+    </a>
+    <a href="/" title="the Grimoire of Starlight">
+        <img
+			src="http://ys-j.ysepan.com/544024524/713437239/k7428632I5JLI8Xjhdwlv35/Head.PNG"
+			alt="MiyakTik"
+		/>
+    </a>
+</div>
+		<div class="kira-body">
+			<div class="kira-sidebar" id="sidebar">
+	<div class="kira-avatar mdui-ripple">
+		<a target="_blank" rel="noopener" href="http://ys-j.ysepan.com/544024524/713437239/k7428632I5JLI8Xjhdwlv35/Head.PNG" title="MiyakTik">
+			<img
+				src="http://ys-j.ysepan.com/544024524/713437239/k7428632I5JLI8Xjhdwlv35/Head.PNG"
+				alt="MiyakTik"
+			/>
+		</a>
+	</div>
+	<div class="kira-count">
+		<div><span>文章</span>6</div>
+		<div><span>标签</span>3</div>
+		<div><span>分类</span>0</div>
+	</div>
+	<div class="kira-list">
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/"
+			title="首页"
+		>
+			<i
+				class="kirafont icon-home"
+			></i>
+			<div class="kira-list-item-content">首页</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/archive.html"
+			title="文章归档"
+		>
+			<i
+				class="kirafont icon-container"
+			></i>
+			<div class="kira-list-item-content">文章归档</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/about.html"
+			title="随笔日记"
+		>
+			<i
+				class="kirafont icon-user"
+			></i>
+			<div class="kira-list-item-content">随笔日记</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/friends.html"
+			title="芙兰图集"
+		>
+			<i
+				class="kirafont icon-team"
+			></i>
+			<div class="kira-list-item-content">芙兰图集</div>
+		</a>
+		
+	</div>
+	<aside id="kira-sidebar">
+		 <div class="kira-widget-wrap">
+	<div class="kira-widget kira-social">
+		<a
+			class="mdui-ripple"
+			href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1119194972&website=www.oicqzone.com"
+			target="_blank"
+			mdui-tooltip="{content: 'QQ'}"
+			style="
+				color: rgb(49, 174, 255);
+				background-color: rgba(49, 174, 255, .1);
+			"
+		>
+			<i
+				class="kirafont icon-QQ"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://music.163.com/#/artist?id=12269011"
+			target="_blank"
+			mdui-tooltip="{content: '网易云音乐'}"
+			style="
+				color: rgb(230, 0, 38);
+				background-color: rgba(230, 0, 38, 0.15);
+			"
+		>
+			<i
+				class="kirafont icon-netease"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/28499909"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .15);
+			"
+		>
+			<i
+				class="kirafont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/star11ght/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="kirafont icon-github"
+			></i> </a
+		>
+	</div>
+</div>
+    
+<div class="kira-widget-wrap">
+	<div id="randomtagcloud" class="kira-widget tagcloud kira-rainbow"><a href="/tags/Chat/" style="font-size: 10px;">Chat</a> <a href="/tags/FLbot/" style="font-size: 15px;">FLbot</a> <a href="/tags/Study/" style="font-size: 20px;">Study</a></div>
+	
+</div>
+
+ 
+	</aside>
+	<div class="kira-copyright">
+		&copy; 2023
+		<a href="/">MiyakTik</a
+		>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> &
+		<!-- TODO: github 链接 -->
+		<a href="https://github.com/ch1ny/kira-hexo/" target="_blank">Kira-Hexo</a>
+		<br />
+		
+		躲在彩虹之上的星星
+	</div>
+</div>
+<div class="kira-sidebar-modal" id="sidebar-modal" onclick="(function(self) {
+	self.classList.remove('show');
+	document.querySelector('.kira-sidebar.show#sidebar').classList.remove('show');
+})(this)"></div>
+			<div class="kira-content">
+				<div id="kira-top-header"></div>
+				<div class="kira-main-content">
+					
+<link rel="stylesheet" href="/css/kira-image.css">
+
+<script src="/js/kira-image.js"></script>
+<div class="kira-image">
+    <div class="kira-image-modal">
+        <div class="kira-image-header">
+            <div class="kira-image-counter"></div>
+            <div class="kira-image-title"></div>
+            <div class="kira-image-operation">
+                <div class="kira-image-operation-button" id="kira-image-operation-button-zoom">
+                    <i class="kirafont icon-zoom-in"></i>
+                </div>
+                <div class="kira-image-operation-button" id="kira-image-operation-button-close">
+                    <i class="kirafont icon-close"></i>
+                </div>
+            </div>
+        </div>
+        <div class="kira-image-container">
+            <div class="kira-image-prev-button-panel">
+                <div class="kira-image-exchange-button">
+                    <i class="kirafont icon-left"></i>
+                </div>
+            </div>
+            <div class="kira-image-list">
+                <div class="kira-image-prev">
+                    <img />
+                </div>
+                <div class="kira-image-now">
+                    <img />
+                </div>
+                <div class="kira-image-next">
+                    <img />
+                </div>
+            </div>
+            <div class="kira-image-next-button-panel">
+                <div class="kira-image-exchange-button">
+                    <i class="kirafont icon-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="kira-post">
+	<article>
+		
+		<div class="kira-post-cover">
+			<img
+				data-src="http://ys-i.ysepan.com/544024523/713581133/jhdwlvt581G6M4TJ5PFH25/20230407cover.jpg"
+				data-sizes="auto"
+				alt="DarkBug的完美算法教室01：并查集的使用"
+				class="lazyload  kira-post-cover-image"
+			/>
+			<h1>DarkBug的完美算法教室01：并查集的使用</h1>
+		</div>
+		
+		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
+			<a><i class="kirafont icon-calendar-fill"></i>2023年04月07日</a>
+			<a><i class="kirafont icon-areachart"></i>1.8k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 8 分钟</a>
+		</div>
+		<p><font size="6"><strong>前情提要</strong></font></p>
+<p>3月16号学校组织了一场天梯模拟赛，其中有一大半高分题都涉及到集合问题。事后跑去洛谷做集合的题单，发现了一个短小精悍神秘而优雅的东西——<strong>并查集</strong>。</p>
+<p>了解了这是个什么玩意并练了几道题之后，<del>九敏家人们谁懂啊我好像恋爱了</del></p>
+<hr>
+<p><font size="6"><strong>并查集的实现</strong></font></p>
+<p>并查集是一种树型的数据结构，用于处理一些不相交集合（disjoint sets）的合并及查询问题。常常在使用中以森林来表示。（转自百度百科）</p>
+<p>实现主要由两个步骤组成：<strong>查找和合并</strong>。</p>
+<p>查找代码（查找祖先）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int find(int x) &#123;</span><br><span class="line">    if(x != fa[x])//当x不等于它的爸爸时(当它是祖先时，它没有爸爸) </span><br><span class="line">    &#123;</span><br><span class="line">        fa[x] = find(fa[x]);//继续找他爸爸的爸爸 </span><br><span class="line">    &#125;</span><br><span class="line">    return fa[x];//返回祖先 </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>合并代码（将两个祖先结为父子）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void unity(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">    int r1 = find(x);//找到x的祖先 </span><br><span class="line">    int r2 = find(y);//找到y的祖先 </span><br><span class="line">    fa[r1] = r2;//祖先和祖先结为父子，看题目需求，本代码y为x的祖先</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用并查集前还需要初始化fa数组，让每个结点的父亲等于其本身，即每个人都是祖先。<br>只需使用这两段代码即可解决大量关于集合之间关系的问题，<del>实在是太优雅了！</del></p>
+<hr>
+<p><font size="6"><strong>例题</strong></font></p>
+<p><strong>SF01-01 家谱</strong> | <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2814">https://www.luogu.com.cn/problem/P2814</a> </p>
+<p>题目描述：<br>给出充足的父子关系，请你编写程序找到某个人的最早的祖先。</p>
+<p>输入格式：<br>输入由多行组成，首先是一系列有关父子关系的描述，其中每一组父子关系中父亲只有一行，儿子可能有若干行，用 <code>#name</code> 的形式描写一组父子关系中的父亲的名字，用 <code>+name</code> 的形式描写一组父子关系中的儿子的名字；接下来用 <code>?name</code> 的形式表示要求该人的最早的祖先；最后用单独的一个 <code>$</code> 表示文件结束。</p>
+<p>输出格式：<br>按照输入文件的要求顺序，求出每一个要找祖先的人的祖先，格式为：本人的名字 $+$ 一个空格 $+$ 祖先的名字 $+$ 回车。</p>
+<p>样例输入 #1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#George</span><br><span class="line">+Rodney</span><br><span class="line">#Arthur</span><br><span class="line">+Gareth</span><br><span class="line">+Walter</span><br><span class="line">#Gareth</span><br><span class="line">+Edward</span><br><span class="line">?Edward</span><br><span class="line">?Walter</span><br><span class="line">?Rodney</span><br><span class="line">?Arthur</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+<p>样例输出 #1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Edward Arthur</span><br><span class="line">Walter Arthur</span><br><span class="line">Rodney George</span><br><span class="line">Arthur Arthur</span><br></pre></td></tr></table></figure>
+
+<p>提示：<br>规定每个人的名字都有且只有 $6$ 个字符，而且首字母大写，且没有任意两个人的名字相同。最多可能有 $10^3$ 组父子关系，总人数最多可能达到 $5 \times 10^4$ 人，家谱中的记载不超过 $30$ 代。</p>
+<p>这道题key值是string，所以用map容器+并查集就能直接拿下。顺便复习了一下STL库的用法。</p>
+<p>本题AC代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">map&lt;string,string&gt; fa;</span><br><span class="line">string find(string x)&#123;</span><br><span class="line">	if(fa[x]!=x)fa[x]=find(fa[x]);</span><br><span class="line">	return fa[x];</span><br><span class="line">&#125;</span><br><span class="line">int unite(string x,string y)&#123;</span><br><span class="line">	fa[find(y)]=find(x);//x的祖先为y的祖先的祖先</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	string x,father,son,check;</span><br><span class="line">	cin&gt;&gt;x;</span><br><span class="line">	while(x!=&quot;$&quot;)&#123;</span><br><span class="line">		if(x[0]==&#x27;#&#x27;)</span><br><span class="line">			father=x.substr(1);</span><br><span class="line">			if(!fa.count(father))&#123;</span><br><span class="line">				fa[father]=father;</span><br><span class="line">			&#125;</span><br><span class="line">		else if(x[0]==&#x27;+&#x27;)&#123;</span><br><span class="line">			son=x.substr(1);</span><br><span class="line">			if(!fa.count(son))&#123;</span><br><span class="line">				fa[son]=son;</span><br><span class="line">			&#125;</span><br><span class="line">			unite(father,son);//根据题意和代码设计，父亲放在前面孩子放在后面</span><br><span class="line">		&#125;</span><br><span class="line">		else if(x[0]==&#x27;?&#x27;)&#123;</span><br><span class="line">			check=x.substr(1);</span><br><span class="line">			cout&lt;&lt;check&lt;&lt;&quot; &quot;&lt;&lt;find(check)&lt;&lt;endl;</span><br><span class="line">		&#125; </span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>SF01-02 [BOI2003]团伙</strong> | <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1892">https://www.luogu.com.cn/problem/P1892</a></p>
+<p>题目描述：<br>现在有 $n$ 个人，他们之间有两种关系：朋友和敌人。我们知道：</p>
+<ul>
+<li>一个人的朋友的朋友是朋友</li>
+<li>一个人的敌人的敌人是朋友</li>
+</ul>
+<p>现在要对这些人进行组团。两个人在一个团体内当且仅当这两个人是朋友。请求出这些人中最多可能有的团体数。</p>
+<p>输入格式：<br>第一行输入一个整数 $n$ 代表人数。<br>第二行输入一个整数 $m$ 表示接下来要列出 $m$ 个关系。<br>接下来 $m$ 行，每行一个字符 $opt$ 和两个整数 $p,q$，分别代表关系（朋友或敌人），有关系的两个人之中的第一个人和第二个人。其中 $opt$ 有两种可能：</p>
+<ul>
+<li>如果 $opt$ 为 <code>F</code>，则表明 $p$ 和 $q$ 是朋友。</li>
+<li>如果 $opt$ 为 <code>E</code>，则表明 $p$ 和 $q$ 是敌人。</li>
+</ul>
+<p>输出格式：<br>一行一个整数代表最多的团体数。</p>
+<p>样例输入 #1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">4</span><br><span class="line">E 1 4</span><br><span class="line">F 3 5</span><br><span class="line">F 4 6</span><br><span class="line">E 1 2</span><br></pre></td></tr></table></figure>
+
+<p>样例输出 #1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<p>提示：<br>对于 $100%$ 的数据，$2 \le n \le 1000$，$1 \le m \le 5000$，$1 \le p,q \le n$。</p>
+<p>这道题稍微绕了个弯子，朋友的朋友是朋友，敌人的敌人也是朋友。所以就按着题意来，定义一个敌人数组，用于存放某个人的某个敌人是谁（只用记录其中一个即可）。若输入了A和B互为敌人，先检查A之前是否定义过了敌人，若定义过了，就让A的敌人和B合并；若B定义过了敌人，就让B的敌人和A合并；若两者都没有定义过敌人，就定义A的敌人是B，B的敌人是A。输入朋友信息的代码就与一般的并查集如出一辙了，本题重点在于解决敌人的敌人是朋友的问题。</p>
+<p>本题AC代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define ll long long</span><br><span class="line">using namespace std;</span><br><span class="line">int enemy[5005],friends[5005];</span><br><span class="line">map&lt;int,int&gt; mm;</span><br><span class="line">int find(int x)&#123;</span><br><span class="line">	if(friends[x]!=x)friends[x]=find(friends[x]);</span><br><span class="line">	return friends[x];</span><br><span class="line">&#125;</span><br><span class="line">int unite(int p,int q)&#123;</span><br><span class="line">	friends[find(p)]=find(q);</span><br><span class="line">&#125;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">	int n,m;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">		enemy[i]=i;</span><br><span class="line">		friends[i]=i;</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i=1;i&lt;=m;i++)&#123;</span><br><span class="line">		string x;</span><br><span class="line">		int q,p;</span><br><span class="line">		cin&gt;&gt;x&gt;&gt;p&gt;&gt;q;</span><br><span class="line">		if(x==&quot;F&quot;)&#123;</span><br><span class="line">			unite(p,q);</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			if(enemy[p]!=p)&#123;</span><br><span class="line">				unite(enemy[p],q);</span><br><span class="line">			&#125;</span><br><span class="line">			else if(enemy[q]!=q)&#123;</span><br><span class="line">				unite(p,enemy[q]);</span><br><span class="line">			&#125;</span><br><span class="line">			else&#123;</span><br><span class="line">				enemy[p]=q;</span><br><span class="line">				enemy[q]=p;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	int ans=0;</span><br><span class="line">	for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">		int father = find(i);</span><br><span class="line">		if(!mm.count(father))&#123;</span><br><span class="line">			ans++;</span><br><span class="line">			mm[father]=1;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><font size="6"><strong>总结</strong></font></p>
+<p>想不出结尾了，那我就夸一声并查集牛逼吧。哈哈！<br>还有一点要注意的是，要想计算一共有多少个相互独立的集合的话，只需要将所有祖父值遍历一遍即可，祖父值出现个数即为集合数。（怕自己一时半会儿脑子转不过来还是写一下吧）</p>
+<p>作为完美算法教室系列的开端，在这里祝以后看到这句话的自己勿忘初心，不要忘了你是从何开始、如何开始走上算法这条不归路的。也希望你能够一直坚定不移地走下去，发现算法之美。<del>打阿卡伊双星不了那打cf给老子变成红名不过分吧！？</del></p>
+<p><font size="4"><strong>——END——</strong></font></p>
+
+	</article>
+
+	 
+    <div class="kira-post-copyright">
+        <strong>本文作者：</strong>MiyakTik<br>
+        <strong>本文链接：</strong><a href="https://star11ght.github.io/2023/04/07/SF01/" title="https:&#x2F;&#x2F;star11ght.github.io&#x2F;2023&#x2F;04&#x2F;07&#x2F;SF01&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;star11ght.github.io&#x2F;2023&#x2F;04&#x2F;07&#x2F;SF01&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+  
+	<div class="kira-post-nav">
+		<nav class="post-nav">
+			
+		</nav>
+	</div>
+	
+	<div class="kira-post-meta kira-rainbow">
+		
+		
+			<a class="kirafont icon-tag-fill -none-link" href="/tags/Study/" rel="tag">Study</a>
+		
+	</div>
+	
+	<div class="kira-post-footer">
+</div>
+	
+</div>
+
+				</div>
+			</div>
+			<div class="kira-right-column">
+	<a onclick="document.querySelector('#kira-top-header').scrollIntoView({behavior: 'smooth'});" class="kira-backtotop" aria-label="回到顶部" title="回到顶部">
+		<button class="mdui-fab mdui-ripple">
+			<i class="kirafont icon-caret-up"></i>
+		</button>
+	</a>
+</div>
+
+		</div>
+	</body>
+</html>

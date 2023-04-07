@@ -132,7 +132,7 @@
 <li>随机获得积分x，(8 + jrrp &#x2F; 250) ≤ x ≤ 50</li>
 <li>再计算额外奖励率y，favor &#x2F; 10 ≤ y ≤ (ren - 1) &#x2F; 50，若左边界大于右边界则两边界互换</li>
 <li>最后得出今日获得的积分为 x(1+y)</li>
-<li>若银行账户内有存款，将会支付给您1％<del>3％的利息（存款大于10000时为1％</del>2％）。</li>
+<li>若银行账户内有存款，将会支付给您1％ ~ 3％的利息（存款大于10000时为1％ ~ 2％）。</li>
 </ul>
 </li>
 <li>小技巧1：如果身上rp重置卡数量充足且jrrp不高，可使用重置卡提高x的取值再签到</li>
@@ -810,6 +810,74 @@
 <p>但只要想学习，总是有机会学的，所以归根结底还是得从自己身上找原因。把这次比赛当做一个教训，在接下来的日子里努力学算法，刷题打cf，不求做得最好，只求尽力而为。正如dls在开营仪式中所说的，“仰望星空，脚踏实地。”接下来一步一个脚印，心无旁骛，抬头看路，足矣。</p>
 <p>接下来的蓝桥杯省赛和天梯赛继续加油啦。<br>如果还有第二次ACM选拔赛，希望能拿下。当然尽力而为才是最大的胜利。</p>
 <p>2023&#x2F;03&#x2F;12 00:51 于201寝室</p>
+]]></content>
+      <tags>
+        <tag>Study</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DarkBug的完美算法教室01：并查集的使用</title>
+    <url>/2023/04/07/SF01/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p><font size="6"><strong>前情提要</strong></font></p>
+<p>3月16号学校组织了一场天梯模拟赛，其中有一大半高分题都涉及到集合问题。事后跑去洛谷做集合的题单，发现了一个短小精悍神秘而优雅的东西——<strong>并查集</strong>。</p>
+<p>了解了这是个什么玩意并练了几道题之后，<del>九敏家人们谁懂啊我好像恋爱了</del></p>
+<hr>
+<p><font size="6"><strong>并查集的实现</strong></font></p>
+<p>并查集是一种树型的数据结构，用于处理一些不相交集合（disjoint sets）的合并及查询问题。常常在使用中以森林来表示。（转自百度百科）</p>
+<p>实现主要由两个步骤组成：<strong>查找和合并</strong>。</p>
+<p>查找代码（查找祖先）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int find(int x) &#123;</span><br><span class="line">    if(x != fa[x])//当x不等于它的爸爸时(当它是祖先时，它没有爸爸) </span><br><span class="line">    &#123;</span><br><span class="line">        fa[x] = find(fa[x]);//继续找他爸爸的爸爸 </span><br><span class="line">    &#125;</span><br><span class="line">    return fa[x];//返回祖先 </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>合并代码（将两个祖先结为父子）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void unity(int x, int y)</span><br><span class="line">&#123;</span><br><span class="line">    int r1 = find(x);//找到x的祖先 </span><br><span class="line">    int r2 = find(y);//找到y的祖先 </span><br><span class="line">    fa[r1] = r2;//祖先和祖先结为父子，看题目需求，本代码y为x的祖先</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用并查集前还需要初始化fa数组，让每个结点的父亲等于其本身，即每个人都是祖先。<br>只需使用这两段代码即可解决大量关于集合之间关系的问题，<del>实在是太优雅了！</del></p>
+<hr>
+<p><font size="6"><strong>例题</strong></font></p>
+<p><strong>SF01-01 家谱</strong> | <a href="https://www.luogu.com.cn/problem/P2814">https://www.luogu.com.cn/problem/P2814</a> </p>
+<p>题目描述：<br>给出充足的父子关系，请你编写程序找到某个人的最早的祖先。</p>
+<p>输入格式：<br>输入由多行组成，首先是一系列有关父子关系的描述，其中每一组父子关系中父亲只有一行，儿子可能有若干行，用 <code>#name</code> 的形式描写一组父子关系中的父亲的名字，用 <code>+name</code> 的形式描写一组父子关系中的儿子的名字；接下来用 <code>?name</code> 的形式表示要求该人的最早的祖先；最后用单独的一个 <code>$</code> 表示文件结束。</p>
+<p>输出格式：<br>按照输入文件的要求顺序，求出每一个要找祖先的人的祖先，格式为：本人的名字 $+$ 一个空格 $+$ 祖先的名字 $+$ 回车。</p>
+<p>样例输入 #1：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#George</span><br><span class="line">+Rodney</span><br><span class="line">#Arthur</span><br><span class="line">+Gareth</span><br><span class="line">+Walter</span><br><span class="line">#Gareth</span><br><span class="line">+Edward</span><br><span class="line">?Edward</span><br><span class="line">?Walter</span><br><span class="line">?Rodney</span><br><span class="line">?Arthur</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+
+<p>样例输出 #1：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Edward Arthur</span><br><span class="line">Walter Arthur</span><br><span class="line">Rodney George</span><br><span class="line">Arthur Arthur</span><br></pre></td></tr></table></figure>
+
+<p>提示：<br>规定每个人的名字都有且只有 $6$ 个字符，而且首字母大写，且没有任意两个人的名字相同。最多可能有 $10^3$ 组父子关系，总人数最多可能达到 $5 \times 10^4$ 人，家谱中的记载不超过 $30$ 代。</p>
+<p>这道题key值是string，所以用map容器+并查集就能直接拿下。顺便复习了一下STL库的用法。</p>
+<p>本题AC代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">map&lt;string,string&gt; fa;</span><br><span class="line">string find(string x)&#123;</span><br><span class="line">	if(fa[x]!=x)fa[x]=find(fa[x]);</span><br><span class="line">	return fa[x];</span><br><span class="line">&#125;</span><br><span class="line">int unite(string x,string y)&#123;</span><br><span class="line">	fa[find(y)]=find(x);//x的祖先为y的祖先的祖先</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	string x,father,son,check;</span><br><span class="line">	cin&gt;&gt;x;</span><br><span class="line">	while(x!=&quot;$&quot;)&#123;</span><br><span class="line">		if(x[0]==&#x27;#&#x27;)</span><br><span class="line">			father=x.substr(1);</span><br><span class="line">			if(!fa.count(father))&#123;</span><br><span class="line">				fa[father]=father;</span><br><span class="line">			&#125;</span><br><span class="line">		else if(x[0]==&#x27;+&#x27;)&#123;</span><br><span class="line">			son=x.substr(1);</span><br><span class="line">			if(!fa.count(son))&#123;</span><br><span class="line">				fa[son]=son;</span><br><span class="line">			&#125;</span><br><span class="line">			unite(father,son);//根据题意和代码设计，父亲放在前面孩子放在后面</span><br><span class="line">		&#125;</span><br><span class="line">		else if(x[0]==&#x27;?&#x27;)&#123;</span><br><span class="line">			check=x.substr(1);</span><br><span class="line">			cout&lt;&lt;check&lt;&lt;&quot; &quot;&lt;&lt;find(check)&lt;&lt;endl;</span><br><span class="line">		&#125; </span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>SF01-02 [BOI2003]团伙</strong> | <a href="https://www.luogu.com.cn/problem/P1892">https://www.luogu.com.cn/problem/P1892</a></p>
+<p>题目描述：<br>现在有 $n$ 个人，他们之间有两种关系：朋友和敌人。我们知道：</p>
+<ul>
+<li>一个人的朋友的朋友是朋友</li>
+<li>一个人的敌人的敌人是朋友</li>
+</ul>
+<p>现在要对这些人进行组团。两个人在一个团体内当且仅当这两个人是朋友。请求出这些人中最多可能有的团体数。</p>
+<p>输入格式：<br>第一行输入一个整数 $n$ 代表人数。<br>第二行输入一个整数 $m$ 表示接下来要列出 $m$ 个关系。<br>接下来 $m$ 行，每行一个字符 $opt$ 和两个整数 $p,q$，分别代表关系（朋友或敌人），有关系的两个人之中的第一个人和第二个人。其中 $opt$ 有两种可能：</p>
+<ul>
+<li>如果 $opt$ 为 <code>F</code>，则表明 $p$ 和 $q$ 是朋友。</li>
+<li>如果 $opt$ 为 <code>E</code>，则表明 $p$ 和 $q$ 是敌人。</li>
+</ul>
+<p>输出格式：<br>一行一个整数代表最多的团体数。</p>
+<p>样例输入 #1：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">6</span><br><span class="line">4</span><br><span class="line">E 1 4</span><br><span class="line">F 3 5</span><br><span class="line">F 4 6</span><br><span class="line">E 1 2</span><br></pre></td></tr></table></figure>
+
+<p>样例输出 #1：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<p>提示：<br>对于 $100%$ 的数据，$2 \le n \le 1000$，$1 \le m \le 5000$，$1 \le p,q \le n$。</p>
+<p>这道题稍微绕了个弯子，朋友的朋友是朋友，敌人的敌人也是朋友。所以就按着题意来，定义一个敌人数组，用于存放某个人的某个敌人是谁（只用记录其中一个即可）。若输入了A和B互为敌人，先检查A之前是否定义过了敌人，若定义过了，就让A的敌人和B合并；若B定义过了敌人，就让B的敌人和A合并；若两者都没有定义过敌人，就定义A的敌人是B，B的敌人是A。输入朋友信息的代码就与一般的并查集如出一辙了，本题重点在于解决敌人的敌人是朋友的问题。</p>
+<p>本题AC代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define ll long long</span><br><span class="line">using namespace std;</span><br><span class="line">int enemy[5005],friends[5005];</span><br><span class="line">map&lt;int,int&gt; mm;</span><br><span class="line">int find(int x)&#123;</span><br><span class="line">	if(friends[x]!=x)friends[x]=find(friends[x]);</span><br><span class="line">	return friends[x];</span><br><span class="line">&#125;</span><br><span class="line">int unite(int p,int q)&#123;</span><br><span class="line">	friends[find(p)]=find(q);</span><br><span class="line">&#125;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">	int n,m;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">		enemy[i]=i;</span><br><span class="line">		friends[i]=i;</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i=1;i&lt;=m;i++)&#123;</span><br><span class="line">		string x;</span><br><span class="line">		int q,p;</span><br><span class="line">		cin&gt;&gt;x&gt;&gt;p&gt;&gt;q;</span><br><span class="line">		if(x==&quot;F&quot;)&#123;</span><br><span class="line">			unite(p,q);</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			if(enemy[p]!=p)&#123;</span><br><span class="line">				unite(enemy[p],q);</span><br><span class="line">			&#125;</span><br><span class="line">			else if(enemy[q]!=q)&#123;</span><br><span class="line">				unite(p,enemy[q]);</span><br><span class="line">			&#125;</span><br><span class="line">			else&#123;</span><br><span class="line">				enemy[p]=q;</span><br><span class="line">				enemy[q]=p;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	int ans=0;</span><br><span class="line">	for(int i=1;i&lt;=n;i++)&#123;</span><br><span class="line">		int father = find(i);</span><br><span class="line">		if(!mm.count(father))&#123;</span><br><span class="line">			ans++;</span><br><span class="line">			mm[father]=1;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><font size="6"><strong>总结</strong></font></p>
+<p>想不出结尾了，那我就夸一声并查集牛逼吧。哈哈！<br>还有一点要注意的是，要想计算一共有多少个相互独立的集合的话，只需要将所有祖父值遍历一遍即可，祖父值出现个数即为集合数。（怕自己一时半会儿脑子转不过来还是写一下吧）</p>
+<p>作为完美算法教室系列的开端，在这里祝以后看到这句话的自己勿忘初心，不要忘了你是从何开始、如何开始走上算法这条不归路的。也希望你能够一直坚定不移地走下去，发现算法之美。<del>打阿卡伊双星不了那打cf给老子变成红名不过分吧！？</del></p>
+<p><font size="4"><strong>——END——</strong></font></p>
 ]]></content>
       <tags>
         <tag>Study</tag>
