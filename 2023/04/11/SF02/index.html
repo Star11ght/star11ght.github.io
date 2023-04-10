@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html 
+	lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+<link rel="stylesheet" href="/css/layout.css">
+
+		
+		<title> DarkBug的完美算法教室02：STL常用容器 -  the Grimoire of Starlight</title>
+		<link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
+		<script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+		<!-- lazyload -->
+		<script src="https://unpkg.com/lazysizes@5.1.0/lazysizes.min.js"></script>
+		<!-- smooth-scrolling -->
+		<script src="https://unpkg.com/smooth-scrolling.js@latest"></script>
+		<!-- highlight -->
+		<link rel="stylesheet" href="//unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark.min.css" />
+		<script src="//unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+		<!-- 预置 kiraicon -->
+		<link rel="stylesheet" href="/lib/iconfont/iconfont.css" crossorigin />
+		<link
+			rel="shortcut icon"
+			href="http://ys-k.ysepan.com/544024548/713421304/q762636349PJ3kibtqy3a/favicon.png"
+			type="image/png"
+		/>
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		<div
+			class="kira-background"
+			style="background-image: url('http://ys-k.ysepan.com/544024548/713421306/q762636349PJ5kibtqy88/welcome-cover.jpg')"
+		></div>
+		<div class="kira-header">
+    <a
+        class="kira-drawer-button mdui-ripple"
+        title="导航栏"
+        onclick="document.querySelector('.kira-sidebar-modal').classList.add('show');document.querySelector('.kira-sidebar#sidebar').classList.add('show');"
+    >
+        <i class="kirafont icon-menu"></i>
+    </a>
+    <a href="/" title="the Grimoire of Starlight">
+        <img
+			src="http://ys-j.ysepan.com/544024524/713437239/k7428632I5JLI8Xjhdwlv35/Head.PNG"
+			alt="MiyakTik"
+		/>
+    </a>
+</div>
+		<div class="kira-body">
+			<div class="kira-sidebar" id="sidebar">
+	<div class="kira-avatar mdui-ripple">
+		<a target="_blank" rel="noopener" href="http://ys-j.ysepan.com/544024524/713437239/k7428632I5JLI8Xjhdwlv35/Head.PNG" title="MiyakTik">
+			<img
+				src="http://ys-j.ysepan.com/544024524/713437239/k7428632I5JLI8Xjhdwlv35/Head.PNG"
+				alt="MiyakTik"
+			/>
+		</a>
+	</div>
+	<div class="kira-count">
+		<div><span>文章</span>7</div>
+		<div><span>标签</span>3</div>
+		<div><span>分类</span>0</div>
+	</div>
+	<div class="kira-list">
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/"
+			title="首页"
+		>
+			<i
+				class="kirafont icon-home"
+			></i>
+			<div class="kira-list-item-content">首页</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/archive.html"
+			title="文章归档"
+		>
+			<i
+				class="kirafont icon-container"
+			></i>
+			<div class="kira-list-item-content">文章归档</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/about.html"
+			title="随笔日记"
+		>
+			<i
+				class="kirafont icon-user"
+			></i>
+			<div class="kira-list-item-content">随笔日记</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/friends.html"
+			title="芙兰图集"
+		>
+			<i
+				class="kirafont icon-team"
+			></i>
+			<div class="kira-list-item-content">芙兰图集</div>
+		</a>
+		
+	</div>
+	<aside id="kira-sidebar">
+		 <div class="kira-widget-wrap">
+	<div class="kira-widget kira-social">
+		<a
+			class="mdui-ripple"
+			href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1119194972&website=www.oicqzone.com"
+			target="_blank"
+			mdui-tooltip="{content: 'QQ'}"
+			style="
+				color: rgb(49, 174, 255);
+				background-color: rgba(49, 174, 255, .1);
+			"
+		>
+			<i
+				class="kirafont icon-QQ"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://music.163.com/#/artist?id=12269011"
+			target="_blank"
+			mdui-tooltip="{content: '网易云音乐'}"
+			style="
+				color: rgb(230, 0, 38);
+				background-color: rgba(230, 0, 38, 0.15);
+			"
+		>
+			<i
+				class="kirafont icon-netease"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/28499909"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .15);
+			"
+		>
+			<i
+				class="kirafont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/star11ght/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .15);
+			"
+		>
+			<i
+				class="kirafont icon-github"
+			></i> </a
+		>
+	</div>
+</div>
+    
+<div class="kira-widget-wrap">
+	<div id="randomtagcloud" class="kira-widget tagcloud kira-rainbow"><a href="/tags/Chat/" style="font-size: 10px;">Chat</a> <a href="/tags/FLbot/" style="font-size: 15px;">FLbot</a> <a href="/tags/Study/" style="font-size: 20px;">Study</a></div>
+	
+</div>
+
+ 
+	</aside>
+	<div class="kira-copyright">
+		&copy; 2023
+		<a href="/">MiyakTik</a
+		>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> &
+		<!-- TODO: github 链接 -->
+		<a href="https://github.com/ch1ny/kira-hexo/" target="_blank">Kira-Hexo</a>
+		<br />
+		
+		躲在彩虹之上的星星
+	</div>
+</div>
+<div class="kira-sidebar-modal" id="sidebar-modal" onclick="(function(self) {
+	self.classList.remove('show');
+	document.querySelector('.kira-sidebar.show#sidebar').classList.remove('show');
+})(this)"></div>
+			<div class="kira-content">
+				<div id="kira-top-header"></div>
+				<div class="kira-main-content">
+					
+<link rel="stylesheet" href="/css/kira-image.css">
+
+<script src="/js/kira-image.js"></script>
+<div class="kira-image">
+    <div class="kira-image-modal">
+        <div class="kira-image-header">
+            <div class="kira-image-counter"></div>
+            <div class="kira-image-title"></div>
+            <div class="kira-image-operation">
+                <div class="kira-image-operation-button" id="kira-image-operation-button-zoom">
+                    <i class="kirafont icon-zoom-in"></i>
+                </div>
+                <div class="kira-image-operation-button" id="kira-image-operation-button-close">
+                    <i class="kirafont icon-close"></i>
+                </div>
+            </div>
+        </div>
+        <div class="kira-image-container">
+            <div class="kira-image-prev-button-panel">
+                <div class="kira-image-exchange-button">
+                    <i class="kirafont icon-left"></i>
+                </div>
+            </div>
+            <div class="kira-image-list">
+                <div class="kira-image-prev">
+                    <img />
+                </div>
+                <div class="kira-image-now">
+                    <img />
+                </div>
+                <div class="kira-image-next">
+                    <img />
+                </div>
+            </div>
+            <div class="kira-image-next-button-panel">
+                <div class="kira-image-exchange-button">
+                    <i class="kirafont icon-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="kira-post">
+	<article>
+		
+		<div class="kira-post-cover">
+			<img
+				data-src="http://ys-i.ysepan.com/544024533/713582974/lgfsmzt581G6N4K7JP2Gfe/20230408cover.jpg"
+				data-sizes="auto"
+				alt="DarkBug的完美算法教室02：STL常用容器"
+				class="lazyload  kira-post-cover-image"
+			/>
+			<h1>DarkBug的完美算法教室02：STL常用容器</h1>
+		</div>
+		
+		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
+			<a><i class="kirafont icon-calendar-fill"></i>2023年04月11日</a>
+			<a><i class="kirafont icon-areachart"></i>4k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 18 分钟</a>
+		</div>
+		<p>呃啊封面放错了，不好意思，应该是这张↓，无视上面不知道哪个路人说的话<br><img data-fancybox="gallery" data-sizes="auto" data-src="http://ys-i.ysepan.com/544024549/713582975/kibtqyu554H5J3O8JM5Ia6/20230408cover2.jpg" alt="看不懂但大受震撼的STL容器图" class="lazyload"></p>
+<p><font size="6"><strong>小趣事</strong></font></p>
+<p>上次本来想写一篇关于STL容器整理的博客（结果变成了并查集），那天参加了蓝桥杯想用vector容器的时候状态不佳（？）突然忘记名字了，于是对着键盘发呆了一会儿，一排排看着键盘上的字母试图唤起回忆，结果看到v这个字母真的立马想起来叫vector。属实没绷住。<br>加上自己的做题速度实在太慢了，其中有一部分时间又浪费在自己没能熟练掌握STL容器的各种函数方法，比如有道题用到了map，我试了5分钟左右才试出迭代器it指向的key值应该写作 <code>it-&gt;first</code> 。太浪费时间了。<del>有这5分钟时间我就能多睡5分钟了可恶啊</del><br>因此，作为天天被各种容器牵着绳子溜着走的人，<del>我觉得有必要介绍一下自己的主人们有哪些特性。</del></p>
+<p><font size="6"><strong>目录</strong></font></p>
+<ul>
+<li><a href="#1">①STL容器适配器</a></li>
+<li><a href="#2">②STL序列式容器</a></li>
+<li><a href="#3">③STL关联式容器</a></li>
+<li><a href="#4">④STL迭代器</a></li>
+</ul>
+<hr>
+<hr>
+<p><a id="1"><font size="6"><strong>①STL容器适配器</strong></font></a></p>
+<hr>
+<p><font size="6"><strong>Stack</strong></font></p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stack&gt;</span><br></pre></td></tr></table></figure>
+
+<p>构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stack&lt;T&gt; stk;</span><br></pre></td></tr></table></figure>
+
+<p>数据存取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">push(elem);//向栈顶添加元素 </span><br><span class="line">pop();//从栈顶移除第一个元素 </span><br><span class="line">top();//返回栈顶元素</span><br><span class="line">swap(stk);//交换两个堆栈的元素</span><br></pre></td></tr></table></figure>
+
+<p>大小操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">empty();//判断堆栈是否为空 </span><br><span class="line">size();//返回堆栈的大小</span><br></pre></td></tr></table></figure>
+<hr>
+<p><font size="6"><strong>Queue</strong></font></p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;queue&gt;</span><br></pre></td></tr></table></figure>
+
+<p>构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue&lt;T&gt; queT;</span><br></pre></td></tr></table></figure>
+
+<p>数据存取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">push(elem);//向队尾添加元素 </span><br><span class="line">pop();//从队列头部移除第一个元素 </span><br><span class="line">front();//返回队列中第一个元素</span><br><span class="line">back();//返回队列中最后一个元素</span><br><span class="line">swap(que);//交换两个队列的元素</span><br></pre></td></tr></table></figure>
+
+<p>大小操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">empty();//判断队列是否为空 </span><br><span class="line">size();//返回队列的大小</span><br></pre></td></tr></table></figure>
+
+<p><font size="5"><strong>Priority_Queue</strong></font></p>
+<p>和Queue的区别是，Priority_Queue是优先队列。它和普通队列的区别在于，优先队列的队头元素总是最大的——即执行 pop 操作时，删除的总是最大的元素；执行 top 操作时，返回的是最大元素的引用。</p>
+<p>构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;T&gt; queT;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><a id="2"><font size="6"><strong>②STL序列式容器</strong></font></a></p>
+<hr>
+<p><font size="6"><strong>Array</strong></font></p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;array&gt;</span><br></pre></td></tr></table></figure>
+
+<p>构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array&lt;T,N&gt; arr;//N是常量，不能用变量表示</span><br></pre></td></tr></table></figure>
+
+<p>数据存取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">front();//返回数组中第一个元素</span><br><span class="line">back();//返回数组中最后一个元素</span><br><span class="line">at(n);//返回容器中 n 位置处元素的引用，该函数自动检查 n 是否在有效的范围内，如果不是则抛出 out_of_range 异常。</span><br><span class="line">arr.at(n)=n;arr[n]=n;//赋值</span><br><span class="line">fill(n);//用指定值填充数组中所有元素</span><br></pre></td></tr></table></figure>
+
+<p>大小操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">empty();//判断array是否为空 </span><br><span class="line">size();//返回容器中当前元素的数量</span><br><span class="line">max_size();//返回容器可容纳元素的最大数量</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><font size="6"><strong>Vector</strong></font></p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;vector&gt;</span><br></pre></td></tr></table></figure>
+
+<p>构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;T&gt; vec;</span><br><span class="line">vec.reserve(20);//增加vector的容量</span><br><span class="line">vector&lt;int&gt; primes&#123;2, 3, 5, 7, 11, 13, 17, 19&#125;;//初始带8个质数</span><br><span class="line">vector&lt;double&gt; values(20);//初始就有20个元素，值均为0</span><br><span class="line">vector&lt;double&gt; values(20, 1.0);//初始就有20个元素，值均为1.0。括号两个数既能是常量又能是变量</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;char&gt;value1(5, &#x27;c&#x27;);</span><br><span class="line">vector&lt;char&gt;value2(value1);//将value1的值赋给value2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int array[]=&#123;1,2,3&#125;;</span><br><span class="line">vector&lt;int&gt;values(array, array+2);//values 将保存&#123;1,2&#125;</span><br><span class="line">vector&lt;int&gt;value1&#123;1,2,3,4,5&#125;;</span><br><span class="line">vector&lt;int&gt;value2(begin(value1),begin(value1)+3);//value2保存&#123;1,2,3&#125;</span><br></pre></td></tr></table></figure>
+
+<p>数据存取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">front();//返回数组中第一个元素</span><br><span class="line">back();//返回数组中最后一个元素</span><br><span class="line">at(n);//使用经过边界检查的索引访问元素。</span><br><span class="line">vec[n]=n;//赋值</span><br><span class="line">push_back();在序列的尾部添加一个元素。</span><br><span class="line">pop_back();移出序列尾部的元素。</span><br><span class="line">it=vec.begin();</span><br><span class="line">vec.insert(it,5);//在第一个元素前面插入5</span><br><span class="line">erase();//移出一个元素或一段元素。</span><br><span class="line">clear();//移出所有的元素，容器大小变为 0。</span><br><span class="line">swap();//交换两个容器的所有元素。</span><br></pre></td></tr></table></figure>
+
+<p>大小操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">empty();//判断vector是否为空 </span><br><span class="line">size();//返回容器中当前元素的数量</span><br><span class="line">max_size();//返回容器可容纳元素的最大数量</span><br></pre></td></tr></table></figure>
+
+<p><font size="5"><strong>Deque</strong></font></p>
+<p>和Vector的区别是，Deque支持在数组的开头和末尾插入或删除元素。</p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;deque&gt;</span><br></pre></td></tr></table></figure>
+
+<p>构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deque &lt;int&gt; dyarr1(5,10); //初始化数组5个元素都是10 </span><br></pre></td></tr></table></figure>
+
+<p>数据存取（比Vector多了个front）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dyarr1.push_front(100);//在数组开头插入100</span><br><span class="line">dyarr1.pop_front();//删除数组开头的元素</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><font size="6"><strong>List</strong></font></p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;list&gt;</span><br></pre></td></tr></table></figure>
+
+<p>构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list&lt;T&gt; values;</span><br><span class="line">list&lt;int&gt; values(10);//包含10个元素，值为0</span><br><span class="line">list&lt;int&gt; values(10, 5);//包含10个元素，值为5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::list&lt;int&gt; value1(10);</span><br><span class="line">std::list&lt;int&gt; value2(value1);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a[] = &#123; 1,2,3,4,5 &#125;;</span><br><span class="line">list&lt;int&gt; values(a, a+5);</span><br><span class="line">array&lt;int, 5&gt;arr&#123; 11,12,13,14,15 &#125;;</span><br><span class="line">list&lt;int&gt;values(arr.begin()+2, arr.end());//拷贝其它类型的容器，创建 list 容器，拷贝arr容器中的&#123;13,14,15&#125;</span><br></pre></td></tr></table></figure>
+
+<p>数据存取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">front();//返回数组中第一个元素</span><br><span class="line">back();//返回数组中最后一个元素</span><br><span class="line">emplace_front();//在容器头部生成一个元素。该函数和 push_front() 的功能相同，但效率更高。</span><br><span class="line">push_front();//在容器头部插入一个元素。</span><br><span class="line">pop_front();//删除容器头部的一个元素。</span><br><span class="line">emplace_back();//在容器尾部直接生成一个元素。该函数和 push_back() 的功能相同，但效率更高。</span><br><span class="line">push_back();//在容器尾部插入一个元素。</span><br><span class="line">pop_back();//删除容器尾部的一个元素。</span><br><span class="line">emplace();//在容器中的指定位置插入元素。该函数和 insert() 功能相同，但效率更高。</span><br><span class="line">insert();//在容器中的指定位置插入元素。</span><br><span class="line">erase();//删除容器中一个或某区域内的元素。</span><br><span class="line">swap();//交换两个容器中的元素，必须保证这两个容器中存储的元素类型是相同的。</span><br><span class="line">unique();//删除容器中相邻的重复元素，只保留一个。</span><br><span class="line">merge();//合并两个事先已排好序的 list 容器，并且合并之后的 list 容器依然是有序的。</span><br></pre></td></tr></table></figure>
+
+<p>大小操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">empty();//判断list是否为空 </span><br><span class="line">size();//返回容器中当前元素的数量</span><br><span class="line">max_size();//返回容器可容纳元素的最大数量</span><br></pre></td></tr></table></figure>
+
+<p><font size="5"><strong>Forward_List</strong></font></p>
+<p>效率高是选用 forward_list 而弃用 list 容器最主要的原因，换句话说，只要是 list 容器和 forward_list 容器都能实现的操作，应优先选择 forward_list 容器。（转自C语言中文网的介绍）</p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;forward_list&gt;</span><br></pre></td></tr></table></figure>
+
+<p>数据存取（特殊）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">emplace_after();//在指定位置之后插入一个新元素，并返回一个指向新元素的迭代器。和 insert_after() 的功能相同，但效率更高。</span><br><span class="line">insert_after();//在指定位置之后插入一个新元素，并返回一个指向新元素的迭代器。</span><br><span class="line">erase_after();//删除容器中某个指定位置或区域内的所有元素。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><font size="6"><strong>Vector和List的区别</strong></font></p>
+<p>关于随机访问：</p>
+<p>vector支持随机访问，可以利用下标精准定位到一个元素上，访问某个元素的时间复杂度是O(1)。<br>list不支持随机访问，要想访问list中的某个元素只能是从前向后或从后向前依次遍历，时间复杂度是O(N)。</p>
+<p>关于插入和删除：</p>
+<p>vector任意位置插入和删除的效率低，因为它每插入一个元素（尾插除外），都需要搬移数据，时间复杂度是O(N)，而且插入还有可能要增容，这样一来还要开辟新空间，拷贝元素，是旧空间，效率会更低。<br>list任意位置插入和删除的效率高，他不需要搬移元素，只需要改变插入或删除位置的前后两个节点的指向即可，时间复杂度为O(1)。</p>
+<hr>
+<hr>
+<p><a id="3"><font size="6"><strong>③STL关联式容器</strong></font></a></p>
+<p><font size="5"><strong>附： pair类的使用</strong></font></p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;utility&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用样例（爱来自C语言中文网）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;utility&gt;      // pair</span><br><span class="line">#include &lt;string&gt;       // string</span><br><span class="line">using namespace std;</span><br><span class="line">int main() &#123;</span><br><span class="line">    // 调用构造函数 1，也就是默认构造函数</span><br><span class="line">    pair &lt;string, double&gt; pair1;</span><br><span class="line">    // 调用第 2 种构造函数</span><br><span class="line">    pair &lt;string, string&gt; pair2(&quot;STL教程&quot;,&quot;http://c.biancheng.net/stl/&quot;);  </span><br><span class="line">    // 调用拷贝构造函数</span><br><span class="line">    pair &lt;string, string&gt; pair3(pair2);</span><br><span class="line">    //调用移动构造函数</span><br><span class="line">    pair &lt;string, string&gt; pair4(make_pair(&quot;C++教程&quot;, &quot;http://c.biancheng.net/cplus/&quot;));</span><br><span class="line">    // 调用第 5 种构造函数</span><br><span class="line">    pair &lt;string, string&gt; pair5(string(&quot;Python教程&quot;), string(&quot;http://c.biancheng.net/python/&quot;));  </span><br><span class="line">   </span><br><span class="line">    cout &lt;&lt; &quot;pair1: &quot; &lt;&lt; pair1.first &lt;&lt; &quot; &quot; &lt;&lt; pair1.second &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;pair2: &quot;&lt;&lt; pair2.first &lt;&lt; &quot; &quot; &lt;&lt; pair2.second &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;pair3: &quot; &lt;&lt; pair3.first &lt;&lt; &quot; &quot; &lt;&lt; pair3.second &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;pair4: &quot; &lt;&lt; pair4.first &lt;&lt; &quot; &quot; &lt;&lt; pair4.second &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; &quot;pair5: &quot; &lt;&lt; pair5.first &lt;&lt; &quot; &quot; &lt;&lt; pair5.second &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    pair1.first = &quot;Java教程&quot;;</span><br><span class="line">    pair1.second = &quot;http://c.biancheng.net/java/&quot;;</span><br><span class="line">    cout &lt;&lt; &quot;new pair1: &quot; &lt;&lt; pair1.first &lt;&lt; &quot; &quot; &lt;&lt; pair1.second &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    pair &lt;string, string&gt; pair4 = make_pair(&quot;C++教程&quot;, &quot;http://c.biancheng.net/cplus/&quot;);</span><br><span class="line">    cout &lt;&lt; &quot;pair4: &quot; &lt;&lt; pair4.first &lt;&lt; &quot; &quot; &lt;&lt; pair4.second &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pair1:  0</span><br><span class="line">pair2: STL教程 http://c.biancheng.net/stl/</span><br><span class="line">pair3: STL教程 http://c.biancheng.net/stl/</span><br><span class="line">pair4: C++教程 http://c.biancheng.net/cplus/</span><br><span class="line">pair5: Python教程 http://c.biancheng.net/python/</span><br><span class="line">new pair1: Java教程 http://c.biancheng.net/java/</span><br><span class="line">pair4: C++教程 http://c.biancheng.net/cplus/</span><br></pre></td></tr></table></figure>
+
+<p>utility头文件中除了提供创建 pair 对象的方法之外，还为 pair 对象重载了 &lt;、&lt;&#x3D;、&gt;、&gt;&#x3D;、&#x3D;&#x3D;、!&#x3D; 这 6 的运算符，其运算规则是：对于进行比较的 2 个 pair 对象，先比较 pair.first 元素的大小，如果相等则继续比较 pair.second 元素的大小。</p>
+<p>Pair类的比较：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;utility&gt;      // pair</span><br><span class="line">#include &lt;string&gt;       // string</span><br><span class="line">using namespace std;</span><br><span class="line">int main() &#123;</span><br><span class="line">    pair &lt;string, int&gt; pair1(&quot;STL教程&quot;, 20);</span><br><span class="line">    pair &lt;string, int&gt; pair2(&quot;C++教程&quot;, 20);</span><br><span class="line">    pair &lt;string, int&gt; pair3(&quot;C++教程&quot;, 30);</span><br><span class="line">    //pair1和pair2的key不同，value相同</span><br><span class="line">    if (pair1 != pair2) &#123;</span><br><span class="line">        cout &lt;&lt; &quot;pair != pair2&quot; &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    //pair2和pair3的key相同，value不同</span><br><span class="line">    if (pair2 != pair3) &#123;</span><br><span class="line">        cout &lt;&lt; &quot;pair2 != pair3&quot; &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pair != pair2</span><br><span class="line">pair2 != pair3</span><br></pre></td></tr></table></figure>
+
+<p>pair类模板还提供有一个 swap() 成员函数，能够互换 2 个 pair 对象的键值对，其操作成功的前提是这 2 个 pair 对象的键和值的类型要相同。</p>
+<hr>
+<p><font size="6"><strong>Map</strong></font></p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;map&gt;</span><br></pre></td></tr></table></figure>
+
+<p>构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">map&lt;T, T&gt; myMap;</span><br><span class="line">map&lt;string, int&gt; myMap&#123; &#123;&quot;C&quot;,10&#125;,&#123;&quot;STL&quot;,20&#125; &#125;;</span><br><span class="line">map&lt;string, int&gt;newMap(myMap);//直接复制过去</span><br><span class="line">map&lt;string, int, greater&lt;string&gt; &gt;myMap&#123; &#123;&quot;C&quot;,10&#125;,&#123;&quot;STL&quot;,20&#125; &#125;;//对键值做降序排序，STL在C前面</span><br></pre></td></tr></table></figure>
+
+<p>数据存取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lower_bound(key);//返回第一个大于或等于 key 的键值对的双向迭代器</span><br><span class="line">upper_bound(key);//返回第一个大于 key 的键值对的迭代器</span><br><span class="line">myMap[n]=n;//直接使用operator访问</span><br><span class="line">at(key);//找到 map 容器中 key 键对应的值，如果找不到，该函数会引发 out_of_range 异常</span><br><span class="line">insert();//向 map 容器中插入键值对</span><br><span class="line">erase();//删除 map 容器指定位置、指定键值或者指定区域内的键值对</span><br><span class="line">swap();//交换 2 个 map 容器中存储的键值对</span><br><span class="line">clear();//清空 map 容器中所有的键值对</span><br></pre></td></tr></table></figure>
+
+<p>大小操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">empty();//判断map是否为空 </span><br><span class="line">size();//返回当前 map 容器中存有键值对的个数。</span><br><span class="line">max_size();//返回 map 容器所能容纳键值对的最大个数，不同的操作系统，其返回值亦不相同。</span><br><span class="line">count(key);//查找键为 key 的键值对的个数并返回（由于key唯一故最大值为1）</span><br></pre></td></tr></table></figure>
+
+<p><font size="5"><strong>Multimap</strong></font></p>
+<p>和 map 容器的区别在于，multimap 容器中可以同时存储多（≥2）个键相同的键值对。</p>
+<p>构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multimap&lt;string, string&gt; mymultimap;</span><br></pre></td></tr></table></figure>
+
+<p><font size="5"><strong>Unordered_Map &#x2F; Unordered_Multimap</strong></font></p>
+<p>map内部实现了一个红黑树，而unordered_map内部实现了一个哈希表。因此效率后者大于前者，内存占有率前者大于后者。</p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;unordered_map&gt;</span><br><span class="line">#include &lt;unordered_multimap&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><font size="6"><strong>Set</strong></font></p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;set&gt;</span><br></pre></td></tr></table></figure>
+
+<p>构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set&lt;T&gt; myset;</span><br><span class="line">set&lt;string,greater&lt;string&gt; &gt; myset;//降序set容器</span><br></pre></td></tr></table></figure>
+
+<p>数据存取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lower_bound(val);//返回第一个大于或等于 val 的元素的双向迭代器</span><br><span class="line">upper_bound(val);//返回第一个大于 val 的元素的迭代器</span><br><span class="line">insert();//向 set 容器中插入元素</span><br><span class="line">erase();//删除 set 容器中存储的元素</span><br><span class="line">swap();//交换 2 个 set 容器中存储的所有元素</span><br><span class="line">clear();//清空 set 容器中所有的元素</span><br><span class="line">find(val);//在 set 容器中查找值为 val 的元素，如果成功找到，则返回指向该元素的双向迭代器</span><br></pre></td></tr></table></figure>
+
+<p>大小操作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">empty();//判断set是否为空 </span><br><span class="line">size();//返回当前 set 容器中存有元素的个数。</span><br><span class="line">max_size();//返回 set 容器所能容纳元素的最大个数，不同的操作系统，其返回值亦不相同。</span><br><span class="line">count(val);//查找键为 val 的键值对的个数并返回（由于val唯一故最大值为1）</span><br></pre></td></tr></table></figure>
+
+<p><font size="5"><strong>Multiset</strong></font></p>
+<p>和 set 容器不同的是，multiset 容器可以存储多个值相同的元素。</p>
+<p>构造函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multiset&lt;string&gt; mymultiset;</span><br></pre></td></tr></table></figure>
+
+<p><font size="5"><strong>Unordered_Set &#x2F; Unordered_Multiset</strong></font></p>
+<p>与map和unordered_map同理。</p>
+<p>头文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;unordered_set&gt;</span><br><span class="line">#include &lt;unordered_multiset&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p><a id="4"><font size="6"><strong>④STL迭代器</strong></font></a></p>
+<p>哪些容器支持迭代器：</p>
+<table>
+<thead>
+<tr>
+<th>容器</th>
+<th>迭代器类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>array</td>
+<td>随机访问</td>
+</tr>
+<tr>
+<td>vector</td>
+<td>随机访问</td>
+</tr>
+<tr>
+<td>deque</td>
+<td>随机访问</td>
+</tr>
+<tr>
+<td>list</td>
+<td>双向迭代器</td>
+</tr>
+<tr>
+<td>set &#x2F; multiset</td>
+<td>双向迭代器</td>
+</tr>
+<tr>
+<td>map &#x2F; multimap</td>
+<td>双向迭代器</td>
+</tr>
+<tr>
+<td>forward_list</td>
+<td>前向迭代器</td>
+</tr>
+<tr>
+<td>unordered_map &#x2F; unordered_multimap</td>
+<td>前向迭代器</td>
+</tr>
+<tr>
+<td>unordered_set &#x2F; unordered_multiset</td>
+<td>前向迭代器</td>
+</tr>
+<tr>
+<td>stack</td>
+<td>不支持迭代器</td>
+</tr>
+<tr>
+<td>queue</td>
+<td>不支持迭代器</td>
+</tr>
+</tbody></table>
+<p>迭代器使用例（遍历Vector）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">//遍历 vector 容器。</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">//需要引入 vector 头文件</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;int&gt; v&#123;1,2,3,4,5,6,7,8,9,10&#125;; //v被初始化成有10个元素</span><br><span class="line">    cout &lt;&lt; &quot;第一种遍历方法：&quot; &lt;&lt; endl;</span><br><span class="line">    //size返回元素个数</span><br><span class="line">    for (int i = 0; i &lt; v.size(); ++i)</span><br><span class="line">        cout &lt;&lt; v[i] &lt;&lt;&quot; &quot;; //像普通数组一样使用vector容器</span><br><span class="line">    //创建一个正向迭代器，当然，vector也支持其他 3 种定义迭代器的方式</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; endl &lt;&lt; &quot;第二种遍历方法：&quot; &lt;&lt; endl;</span><br><span class="line">    vector&lt;int&gt;::iterator i;</span><br><span class="line">    //用 != 比较两个迭代器</span><br><span class="line">    for (i = v.begin(); i != v.end(); ++i)</span><br><span class="line">        cout &lt;&lt; *i &lt;&lt; &quot; &quot;;</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; endl &lt;&lt; &quot;第三种遍历方法：&quot; &lt;&lt; endl;</span><br><span class="line">    for (i = v.begin(); i &lt; v.end(); ++i) //用 &lt; 比较两个迭代器</span><br><span class="line">        cout &lt;&lt; *i &lt;&lt; &quot; &quot;;</span><br><span class="line">   </span><br><span class="line">    cout &lt;&lt; endl &lt;&lt; &quot;第四种遍历方法：&quot; &lt;&lt; endl;</span><br><span class="line">    i = v.begin();</span><br><span class="line">    while (i &lt; v.end()) &#123; //间隔一个输出</span><br><span class="line">        cout &lt;&lt; *i &lt;&lt; &quot; &quot;;</span><br><span class="line">        i += 2; // 随机访问迭代器支持 &quot;+= 整数&quot;  的操作</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第一种遍历方法：</span><br><span class="line">1 2 3 4 5 6 7 8 9 10</span><br><span class="line">第二种遍历方法：</span><br><span class="line">1 2 3 4 5 6 7 8 9 10</span><br><span class="line">第三种遍历方法：</span><br><span class="line">1 2 3 4 5 6 7 8 9 10</span><br><span class="line">第四种遍历方法：</span><br><span class="line">1 3 5 7 9</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><font size="6"><strong>总结</strong></font></p>
+<p>这下总算是把各种花里胡哨的STL容器给理清楚了捏。其实写这篇博客也是为了方便自己查找各种方法和函数，能让自己在写题的时候快速取回记忆orz不得不说这些容器真的好用，少走了很多弯路！<br>最后希望自己以后能快速准确地让每道需要用到STL容器的题目和最合适使用在这道题上的STL容器喜结连理。（不是）</p>
+<p><font size="4"><strong>——END——</strong></font></p>
+
+	</article>
+
+	 
+    <div class="kira-post-copyright">
+        <strong>本文作者：</strong>MiyakTik<br>
+        <strong>本文链接：</strong><a href="https://star11ght.github.io/2023/04/11/SF02/" title="https:&#x2F;&#x2F;star11ght.github.io&#x2F;2023&#x2F;04&#x2F;11&#x2F;SF02&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;star11ght.github.io&#x2F;2023&#x2F;04&#x2F;11&#x2F;SF02&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+  
+	<div class="kira-post-nav">
+		<nav class="post-nav">
+			
+		</nav>
+	</div>
+	
+	<div class="kira-post-meta kira-rainbow">
+		
+		
+			<a class="kirafont icon-tag-fill -none-link" href="/tags/Study/" rel="tag">Study</a>
+		
+	</div>
+	
+	<div class="kira-post-footer">
+</div>
+	
+</div>
+
+				</div>
+			</div>
+			<div class="kira-right-column">
+	<a onclick="document.querySelector('#kira-top-header').scrollIntoView({behavior: 'smooth'});" class="kira-backtotop" aria-label="回到顶部" title="回到顶部">
+		<button class="mdui-fab mdui-ripple">
+			<i class="kirafont icon-caret-up"></i>
+		</button>
+	</a>
+</div>
+
+		</div>
+	</body>
+</html>
